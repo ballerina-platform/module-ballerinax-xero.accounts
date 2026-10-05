@@ -1361,6 +1361,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Batch payments to delete, each identified by ID with status set to DELETED",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -1372,8 +1373,7 @@
                             }
                         }
                     },
-                    "required": true,
-                    "description": "Batch payments to delete, each identified by ID with status set to DELETED"
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -1573,6 +1573,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Status update that deletes the batch payment identified in the path",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -1583,8 +1584,7 @@
                             }
                         }
                     },
-                    "required": true,
-                    "description": "Status update that deletes the batch payment identified in the path"
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -2349,6 +2349,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Bank transactions to create or update",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -2377,8 +2378,7 @@
                             }
                         }
                     },
-                    "required": true,
-                    "description": "Bank transactions to create or update"
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -2845,6 +2845,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Bank transaction with the fields to update",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -2933,8 +2934,7 @@
                             }
                         }
                     },
-                    "required": true,
-                    "description": "Bank transaction with the fields to update"
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -4229,6 +4229,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Status update that deletes the bank transfer identified in the path",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -4239,8 +4240,7 @@
                             }
                         }
                     },
-                    "required": true,
-                    "description": "Status update that deletes the bank transfer identified in the path"
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -4456,6 +4456,7 @@
                 "tags": [
                     "Accounting"
                 ],
+                "summary": "Uploads an attachment to a specific bank transfer by file name",
                 "operationId": "createBankTransferAttachmentByFileName",
                 "parameters": [
                     {
@@ -4518,13 +4519,13 @@
                         ]
                     }
                 ],
-                "x-hasAccountingValidationError": true,
-                "summary": "Uploads an attachment to a specific bank transfer by file name"
+                "x-hasAccountingValidationError": true
             },
             "post": {
                 "tags": [
                     "Accounting"
                 ],
+                "summary": "Updates an attachment on a specific bank transfer by file name",
                 "operationId": "updateBankTransferAttachmentByFileName",
                 "parameters": [
                     {
@@ -4587,8 +4588,7 @@
                         ]
                     }
                 ],
-                "x-hasAccountingValidationError": true,
-                "summary": "Updates an attachment on a specific bank transfer by file name"
+                "x-hasAccountingValidationError": true
             },
             "parameters": [
                 {
@@ -5871,6 +5871,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Contacts to create or update",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -5903,8 +5904,7 @@
                             }
                         }
                     },
-                    "required": true,
-                    "description": "Contacts to create or update"
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -6822,6 +6822,7 @@
                 "tags": [
                     "Accounting"
                 ],
+                "summary": "Uploads an attachment to a specific contact by file name",
                 "operationId": "createContactAttachmentByFileName",
                 "parameters": [
                     {
@@ -6884,13 +6885,13 @@
                         ]
                     }
                 ],
-                "x-hasAccountingValidationError": true,
-                "summary": "Uploads an attachment to a specific contact by file name"
+                "x-hasAccountingValidationError": true
             },
             "post": {
                 "tags": [
                     "Accounting"
                 ],
+                "summary": "Updates an attachment on a specific contact by file name",
                 "operationId": "updateContactAttachmentByFileName",
                 "parameters": [
                     {
@@ -6953,8 +6954,7 @@
                         ]
                     }
                 ],
-                "x-hasAccountingValidationError": true,
-                "summary": "Updates an attachment on a specific contact by file name"
+                "x-hasAccountingValidationError": true
             },
             "parameters": [
                 {
@@ -10300,6 +10300,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Expense claim with the fields to update",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -10323,8 +10324,7 @@
                             }
                         }
                     },
-                    "required": true,
-                    "description": "Expense claim with the fields to update"
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -11447,6 +11447,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Sales invoices or purchase bills to create or update",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -11478,8 +11479,7 @@
                             }
                         }
                     },
-                    "required": true,
-                    "description": "Sales invoices or purchase bills to create or update"
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -12039,6 +12039,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Invoice with the fields to update",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -12057,8 +12058,7 @@
                             }
                         }
                     },
-                    "required": true,
-                    "description": "Invoice with the fields to update"
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -12626,6 +12626,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Empty request body that triggers the invoice email",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -12634,8 +12635,7 @@
                             "example": {}
                         }
                     },
-                    "required": true,
-                    "description": "Empty request body that triggers the invoice email"
+                    "required": true
                 },
                 "responses": {
                     "204": {
@@ -13115,6 +13115,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Items to create or update",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -13131,8 +13132,7 @@
                             }
                         }
                     },
-                    "required": true,
-                    "description": "Items to create or update"
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -13318,6 +13318,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Item with the fields to update",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -13333,8 +13334,7 @@
                             }
                         }
                     },
-                    "required": true,
-                    "description": "Item with the fields to update"
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -14250,6 +14250,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Linked transaction with the fields to update",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -14265,8 +14266,7 @@
                             }
                         }
                     },
-                    "required": true,
-                    "description": "Linked transaction with the fields to update"
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -15199,6 +15199,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Manual journal with the fields to update",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -15215,8 +15216,7 @@
                             }
                         }
                     },
-                    "required": true,
-                    "description": "Manual journal with the fields to update"
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -17639,6 +17639,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Status update that deletes the payment identified in the path",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -17653,8 +17654,7 @@
                             }
                         }
                     },
-                    "required": true,
-                    "description": "Status update that deletes the payment identified in the path"
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -19323,6 +19323,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Purchase orders to create or update",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -19348,8 +19349,7 @@
                             }
                         }
                     },
-                    "required": true,
-                    "description": "Purchase orders to create or update"
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -19843,6 +19843,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Purchase order with the fields to update",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -19859,8 +19860,7 @@
                             }
                         }
                     },
-                    "required": true,
-                    "description": "Purchase order with the fields to update"
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -21077,6 +21077,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Quotes to create or update",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -21102,8 +21103,7 @@
                             }
                         }
                     },
-                    "required": true,
-                    "description": "Quotes to create or update"
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -21421,6 +21421,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Quote with the fields to update",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -21439,8 +21440,7 @@
                             }
                         }
                     },
-                    "required": true,
-                    "description": "Quote with the fields to update"
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -22648,6 +22648,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Draft expense claim receipt with the fields to update",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -22666,8 +22667,7 @@
                             }
                         }
                     },
-                    "required": true,
-                    "description": "Draft expense claim receipt with the fields to update"
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -23815,6 +23815,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Repeating invoice template with the fields to update, or a DELETED status",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -23871,8 +23872,7 @@
                             }
                         }
                     },
-                    "required": true,
-                    "description": "Repeating invoice template with the fields to update, or a DELETED status"
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -28951,6 +28951,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Tax rates with the fields to update",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -28973,8 +28974,7 @@
                             }
                         }
                     },
-                    "required": true,
-                    "description": "Tax rates with the fields to update"
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -29418,6 +29418,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Tracking category with the fields to update",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -29428,8 +29429,7 @@
                             }
                         }
                     },
-                    "required": true,
-                    "description": "Tracking category with the fields to update"
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -29646,6 +29646,7 @@
                     }
                 ],
                 "requestBody": {
+                    "description": "Tracking option with the fields to update",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -29656,8 +29657,7 @@
                             }
                         }
                     },
-                    "required": true,
-                    "description": "Tracking option with the fields to update"
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -30062,13 +30062,13 @@
                         "x-ballerina-name": "name"
                     },
                     "CurrencyCode": {
+                        "description": "Currency code of the account",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/CurrencyCode"
                             }
                         ],
-                        "x-ballerina-name": "currencyCode",
-                        "description": "Currency code of the account"
+                        "x-ballerina-name": "currencyCode"
                     },
                     "ReportingCodeName": {
                         "type": "string",
@@ -30087,13 +30087,13 @@
                         "x-ballerina-name": "enablePaymentsToAccount"
                     },
                     "Type": {
+                        "description": "Type of the account (for example BANK, REVENUE or EXPENSE)",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/AccountType"
                             }
                         ],
-                        "x-ballerina-name": "type",
-                        "description": "Type of the account (for example BANK, REVENUE or EXPENSE)"
+                        "x-ballerina-name": "type"
                     },
                     "BankAccountType": {
                         "type": "string",
@@ -30256,13 +30256,13 @@
                         "x-ballerina-name": "url"
                     },
                     "CurrencyCode": {
+                        "description": "Currency code of the invoice",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/CurrencyCode"
                             }
                         ],
-                        "x-ballerina-name": "currencyCode",
-                        "description": "Currency code of the invoice"
+                        "x-ballerina-name": "currencyCode"
                     },
                     "UpdatedDateUTCString": {
                         "type": "string",
@@ -30393,22 +30393,22 @@
                         "x-ballerina-name": "date"
                     },
                     "Contact": {
+                        "description": "Contact associated with the invoice",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Contact"
                             }
                         ],
-                        "x-ballerina-name": "contact",
-                        "description": "Contact associated with the invoice"
+                        "x-ballerina-name": "contact"
                     },
                     "LineAmountTypes": {
+                        "description": "Whether line amounts of the invoice are tax exclusive, tax inclusive or have no tax",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/LineAmountTypes"
                             }
                         ],
-                        "x-ballerina-name": "lineAmountTypes",
-                        "description": "Whether line amounts of the invoice are tax exclusive, tax inclusive or have no tax"
+                        "x-ballerina-name": "lineAmountTypes"
                     },
                     "CISDeduction": {
                         "type": "number",
@@ -30585,11 +30585,11 @@
                 "properties": {
                     "RepeatingInvoices": {
                         "type": "array",
+                        "description": "List of repeating invoices",
                         "items": {
                             "$ref": "#/components/schemas/RepeatingInvoice"
                         },
-                        "x-ballerina-name": "repeatingInvoices",
-                        "description": "List of repeating invoices"
+                        "x-ballerina-name": "repeatingInvoices"
                     }
                 },
                 "x-objectArrayKey": "repeating_invoices"
@@ -30598,20 +30598,20 @@
                 "type": "object",
                 "properties": {
                     "pagination": {
+                        "description": "Pagination details of the returned page of results",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Pagination"
                             }
-                        ],
-                        "description": "Pagination details of the returned page of results"
+                        ]
                     },
                     "Payments": {
                         "type": "array",
+                        "description": "List of payments",
                         "items": {
                             "$ref": "#/components/schemas/Payment"
                         },
-                        "x-ballerina-name": "payments",
-                        "description": "List of payments"
+                        "x-ballerina-name": "payments"
                     },
                     "Warnings": {
                         "type": "array",
@@ -30629,11 +30629,11 @@
                 "properties": {
                     "Users": {
                         "type": "array",
+                        "description": "List of users",
                         "items": {
                             "$ref": "#/components/schemas/User"
                         },
-                        "x-ballerina-name": "users",
-                        "description": "List of users"
+                        "x-ballerina-name": "users"
                     }
                 },
                 "x-objectArrayKey": "users"
@@ -30713,8 +30713,8 @@
                     },
                     "Present": {
                         "type": "boolean",
-                        "x-ballerina-name": "present",
-                        "description": "Whether accounts are present in the organisation"
+                        "description": "Whether accounts are present in the organisation",
+                        "x-ballerina-name": "present"
                     },
                     "System": {
                         "type": "integer",
@@ -31077,13 +31077,13 @@
                 "type": "object",
                 "properties": {
                     "SalesDetails": {
+                        "description": "Sales details for the item",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Purchase"
                             }
                         ],
-                        "x-ballerina-name": "salesDetails",
-                        "description": "Sales details for the item"
+                        "x-ballerina-name": "salesDetails"
                     },
                     "Description": {
                         "maxLength": 4000,
@@ -31171,13 +31171,13 @@
                         "x-ballerina-name": "isSold"
                     },
                     "PurchaseDetails": {
+                        "description": "Purchase details for the item",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Purchase"
                             }
                         ],
-                        "x-ballerina-name": "purchaseDetails",
-                        "description": "Purchase details for the item"
+                        "x-ballerina-name": "purchaseDetails"
                     },
                     "QuantityOnBackOrder": {
                         "type": "number",
@@ -31221,11 +31221,11 @@
                 "properties": {
                     "CISSettings": {
                         "type": "array",
+                        "description": "CIS settings of the organisation",
                         "items": {
                             "$ref": "#/components/schemas/CISOrgSetting"
                         },
-                        "x-ballerina-name": "cISSettings",
-                        "description": "CIS settings of the organisation"
+                        "x-ballerina-name": "cISSettings"
                     }
                 },
                 "x-objectArrayKey": "cis_settings"
@@ -31240,11 +31240,11 @@
                     },
                     "BalanceDetails": {
                         "type": "array",
+                        "description": "Balance details of the conversion balance entry",
                         "items": {
                             "$ref": "#/components/schemas/BalanceDetails"
                         },
-                        "x-ballerina-name": "balanceDetails",
-                        "description": "Balance details of the conversion balance entry"
+                        "x-ballerina-name": "balanceDetails"
                     },
                     "Balance": {
                         "type": "number",
@@ -31260,11 +31260,11 @@
                 "properties": {
                     "Organisations": {
                         "type": "array",
+                        "description": "List of organisations",
                         "items": {
                             "$ref": "#/components/schemas/Organisation"
                         },
-                        "x-ballerina-name": "organisations",
-                        "description": "List of organisations"
+                        "x-ballerina-name": "organisations"
                     }
                 },
                 "x-objectArrayKey": "organisations"
@@ -31291,13 +31291,13 @@
                         "x-ballerina-name": "description"
                     },
                     "Code": {
+                        "description": "ISO 4217 code of the currency",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/CurrencyCode"
                             }
                         ],
-                        "x-ballerina-name": "code",
-                        "description": "ISO 4217 code of the currency"
+                        "x-ballerina-name": "code"
                     }
                 },
                 "externalDocs": {
@@ -31358,11 +31358,11 @@
                 "properties": {
                     "Budgets": {
                         "type": "array",
+                        "description": "List of budgets",
                         "items": {
                             "$ref": "#/components/schemas/Budget"
                         },
-                        "x-ballerina-name": "budgets",
-                        "description": "List of budgets"
+                        "x-ballerina-name": "budgets"
                     }
                 },
                 "x-objectArrayKey": "budgets"
@@ -31372,11 +31372,11 @@
                 "properties": {
                     "ContactGroups": {
                         "type": "array",
+                        "description": "List of contact groups",
                         "items": {
                             "$ref": "#/components/schemas/ContactGroup"
                         },
-                        "x-ballerina-name": "contactGroups",
-                        "description": "List of contact groups"
+                        "x-ballerina-name": "contactGroups"
                     }
                 },
                 "x-objectArrayKey": "contact_groups"
@@ -31386,11 +31386,11 @@
                 "properties": {
                     "HistoryRecords": {
                         "type": "array",
+                        "description": "List of history records",
                         "items": {
                             "$ref": "#/components/schemas/HistoryRecord"
                         },
-                        "x-ballerina-name": "historyRecords",
-                        "description": "List of history records"
+                        "x-ballerina-name": "historyRecords"
                     }
                 },
                 "x-objectArrayKey": "history_records"
@@ -31400,11 +31400,11 @@
                 "properties": {
                     "Actions": {
                         "type": "array",
+                        "description": "List of actions the organisation can perform",
                         "items": {
                             "$ref": "#/components/schemas/Action"
                         },
-                        "x-ballerina-name": "actions",
-                        "description": "List of actions the organisation can perform"
+                        "x-ballerina-name": "actions"
                     }
                 },
                 "x-objectArrayKey": "actions"
@@ -31413,20 +31413,20 @@
                 "type": "object",
                 "properties": {
                     "pagination": {
+                        "description": "Pagination details of the returned page of results",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Pagination"
                             }
-                        ],
-                        "description": "Pagination details of the returned page of results"
+                        ]
                     },
                     "Prepayments": {
                         "type": "array",
+                        "description": "List of prepayments",
                         "items": {
                             "$ref": "#/components/schemas/Prepayment"
                         },
-                        "x-ballerina-name": "prepayments",
-                        "description": "List of prepayments"
+                        "x-ballerina-name": "prepayments"
                     },
                     "Warnings": {
                         "type": "array",
@@ -31443,22 +31443,22 @@
                 "type": "object",
                 "properties": {
                     "AccountsPayable": {
+                        "description": "Accounts payable (outstanding and overdue) balances of the contact",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/AccountsPayable"
                             }
                         ],
-                        "x-ballerina-name": "accountsPayable",
-                        "description": "Accounts payable (outstanding and overdue) balances of the contact"
+                        "x-ballerina-name": "accountsPayable"
                     },
                     "AccountsReceivable": {
+                        "description": "Accounts receivable (outstanding and overdue) balances of the contact",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/AccountsReceivable"
                             }
                         ],
-                        "x-ballerina-name": "accountsReceivable",
-                        "description": "Accounts receivable (outstanding and overdue) balances of the contact"
+                        "x-ballerina-name": "accountsReceivable"
                     }
                 },
                 "description": "The raw AccountsReceivable(sales invoices) and AccountsPayable(bills) outstanding and overdue amounts, not converted to base currency (read only)"
@@ -31468,11 +31468,11 @@
                 "properties": {
                     "Reports": {
                         "type": "array",
+                        "description": "List of reports",
                         "items": {
                             "$ref": "#/components/schemas/ReportWithRow"
                         },
-                        "x-ballerina-name": "reports",
-                        "description": "List of reports"
+                        "x-ballerina-name": "reports"
                     }
                 }
             },
@@ -31654,10 +31654,10 @@
                     },
                     "Rows": {
                         "type": "array",
+                        "description": "Rows of the report",
                         "items": {
                             "$ref": "#/components/schemas/ReportRows"
-                        },
-                        "description": "Rows of the report"
+                        }
                     },
                     "UpdatedDateUTC": {
                         "type": "string",
@@ -31668,10 +31668,10 @@
                     },
                     "Fields": {
                         "type": "array",
+                        "description": "Fields of the report",
                         "items": {
                             "$ref": "#/components/schemas/ReportFields"
-                        },
-                        "description": "Fields of the report"
+                        }
                     }
                 },
                 "externalDocs": {
@@ -31705,11 +31705,11 @@
                 "properties": {
                     "Journals": {
                         "type": "array",
+                        "description": "List of journals",
                         "items": {
                             "$ref": "#/components/schemas/Journal"
                         },
-                        "x-ballerina-name": "journals",
-                        "description": "List of journals"
+                        "x-ballerina-name": "journals"
                     },
                     "Warnings": {
                         "type": "array",
@@ -31726,13 +31726,13 @@
                 "type": "object",
                 "properties": {
                     "Type": {
+                        "description": "Payment term type that determines how the day value is applied",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/PaymentTermType"
                             }
                         ],
-                        "x-ballerina-name": "type",
-                        "description": "Payment term type that determines how the day value is applied"
+                        "x-ballerina-name": "type"
                     },
                     "Day": {
                         "type": "integer",
@@ -31748,20 +31748,20 @@
                 "type": "object",
                 "properties": {
                     "pagination": {
+                        "description": "Pagination details of the returned page of results",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Pagination"
                             }
-                        ],
-                        "description": "Pagination details of the returned page of results"
+                        ]
                     },
                     "Overpayments": {
                         "type": "array",
+                        "description": "List of overpayments",
                         "items": {
                             "$ref": "#/components/schemas/Overpayment"
                         },
-                        "x-ballerina-name": "overpayments",
-                        "description": "List of overpayments"
+                        "x-ballerina-name": "overpayments"
                     },
                     "Warnings": {
                         "type": "array",
@@ -31779,16 +31779,16 @@
                 "properties": {
                     "Value": {
                         "type": "string",
-                        "x-ballerina-name": "value",
-                        "description": "Value of the report cell"
+                        "description": "Value of the report cell",
+                        "x-ballerina-name": "value"
                     },
                     "Attributes": {
                         "type": "array",
+                        "description": "Attributes of the report cell",
                         "items": {
                             "$ref": "#/components/schemas/ReportAttribute"
                         },
-                        "x-ballerina-name": "attributes",
-                        "description": "Attributes of the report cell"
+                        "x-ballerina-name": "attributes"
                     }
                 }
             },
@@ -31840,13 +31840,13 @@
                         "x-ballerina-name": "amountDue"
                     },
                     "User": {
+                        "description": "User who submitted the expense claim",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/User"
                             }
                         ],
-                        "x-ballerina-name": "user",
-                        "description": "User who submitted the expense claim"
+                        "x-ballerina-name": "user"
                     },
                     "ReceiptID": {
                         "type": "string",
@@ -31895,11 +31895,11 @@
                     },
                     "Receipts": {
                         "type": "array",
+                        "description": "Receipts included in the expense claim",
                         "items": {
                             "$ref": "#/components/schemas/Receipt"
                         },
-                        "x-ballerina-name": "receipts",
-                        "description": "Receipts included in the expense claim"
+                        "x-ballerina-name": "receipts"
                     },
                     "PaymentDueDate": {
                         "type": "string",
@@ -31918,11 +31918,11 @@
                 "properties": {
                     "BrandingThemes": {
                         "type": "array",
+                        "description": "List of branding themes",
                         "items": {
                             "$ref": "#/components/schemas/BrandingTheme"
                         },
-                        "x-ballerina-name": "brandingThemes",
-                        "description": "List of branding themes"
+                        "x-ballerina-name": "brandingThemes"
                     }
                 },
                 "x-objectArrayKey": "branding_themes"
@@ -31932,8 +31932,8 @@
                 "properties": {
                     "Present": {
                         "type": "boolean",
-                        "x-ballerina-name": "present",
-                        "description": "Whether the organisation details are present"
+                        "description": "Whether the organisation details are present",
+                        "x-ballerina-name": "present"
                     }
                 }
             },
@@ -31942,11 +31942,11 @@
                 "properties": {
                     "Quotes": {
                         "type": "array",
+                        "description": "List of quotes",
                         "items": {
                             "$ref": "#/components/schemas/Quote"
                         },
-                        "x-ballerina-name": "quotes",
-                        "description": "List of quotes"
+                        "x-ballerina-name": "quotes"
                     }
                 },
                 "x-objectArrayKey": "quotes"
@@ -31955,20 +31955,20 @@
                 "type": "object",
                 "properties": {
                     "pagination": {
+                        "description": "Pagination details of the returned page of results",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Pagination"
                             }
-                        ],
-                        "description": "Pagination details of the returned page of results"
+                        ]
                     },
                     "CreditNotes": {
                         "type": "array",
+                        "description": "List of credit notes",
                         "items": {
                             "$ref": "#/components/schemas/CreditNote"
                         },
-                        "x-ballerina-name": "creditNotes",
-                        "description": "List of credit notes"
+                        "x-ballerina-name": "creditNotes"
                     },
                     "Warnings": {
                         "type": "array",
@@ -32015,11 +32015,11 @@
                     },
                     "BudgetBalances": {
                         "type": "array",
+                        "description": "Budget balances for each period of the budget line",
                         "items": {
                             "$ref": "#/components/schemas/BudgetBalance"
                         },
-                        "x-ballerina-name": "budgetBalances",
-                        "description": "Budget balances for each period of the budget line"
+                        "x-ballerina-name": "budgetBalances"
                     }
                 },
                 "externalDocs": {
@@ -32062,11 +32062,11 @@
                 "properties": {
                     "Options": {
                         "type": "array",
+                        "description": "List of tracking options",
                         "items": {
                             "$ref": "#/components/schemas/TrackingOption"
                         },
-                        "x-ballerina-name": "options",
-                        "description": "List of tracking options"
+                        "x-ballerina-name": "options"
                     }
                 },
                 "x-objectArrayKey": "options"
@@ -32076,11 +32076,11 @@
                 "properties": {
                     "BatchPayments": {
                         "type": "array",
+                        "description": "List of batch payments",
                         "items": {
                             "$ref": "#/components/schemas/BatchPayment"
                         },
-                        "x-ballerina-name": "batchPayments",
-                        "description": "List of batch payments"
+                        "x-ballerina-name": "batchPayments"
                     }
                 },
                 "x-objectArrayKey": "batch_payments"
@@ -32105,11 +32105,11 @@
                     },
                     "Tracking": {
                         "type": "array",
+                        "description": "Tracking categories applied to the budget",
                         "items": {
                             "$ref": "#/components/schemas/TrackingCategory"
                         },
-                        "x-ballerina-name": "tracking",
-                        "description": "Tracking categories applied to the budget"
+                        "x-ballerina-name": "tracking"
                     },
                     "UpdatedDateUTC": {
                         "type": "string",
@@ -32127,11 +32127,11 @@
                     },
                     "BudgetLines": {
                         "type": "array",
+                        "description": "Lines of the budget",
                         "items": {
                             "$ref": "#/components/schemas/BudgetLine"
                         },
-                        "x-ballerina-name": "budgetLines",
-                        "description": "Lines of the budget"
+                        "x-ballerina-name": "budgetLines"
                     }
                 },
                 "externalDocs": {
@@ -32268,22 +32268,22 @@
                         "x-ballerina-name": "date"
                     },
                     "Contact": {
+                        "description": "Contact associated with the overpayment",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Contact"
                             }
                         ],
-                        "x-ballerina-name": "contact",
-                        "description": "Contact associated with the overpayment"
+                        "x-ballerina-name": "contact"
                     },
                     "LineAmountTypes": {
+                        "description": "Whether line amounts of the overpayment are tax exclusive, tax inclusive or have no tax",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/LineAmountTypes"
                             }
                         ],
-                        "x-ballerina-name": "lineAmountTypes",
-                        "description": "Whether line amounts of the overpayment are tax exclusive, tax inclusive or have no tax"
+                        "x-ballerina-name": "lineAmountTypes"
                     },
                     "UpdatedDateUTCString": {
                         "type": "string",
@@ -32293,13 +32293,13 @@
                         "x-ballerina-name": "updatedDateUTCString"
                     },
                     "CurrencyCode": {
+                        "description": "Currency code of the overpayment",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/CurrencyCode"
                             }
                         ],
-                        "x-ballerina-name": "currencyCode",
-                        "description": "Currency code of the overpayment"
+                        "x-ballerina-name": "currencyCode"
                     },
                     "Type": {
                         "type": "string",
@@ -32348,11 +32348,11 @@
                 "properties": {
                     "TaxRates": {
                         "type": "array",
+                        "description": "List of tax rates",
                         "items": {
                             "$ref": "#/components/schemas/TaxRate"
                         },
-                        "x-ballerina-name": "taxRates",
-                        "description": "List of tax rates"
+                        "x-ballerina-name": "taxRates"
                     }
                 },
                 "x-objectArrayKey": "tax_rates"
@@ -32362,11 +32362,11 @@
                 "properties": {
                     "PaymentServices": {
                         "type": "array",
+                        "description": "List of payment services",
                         "items": {
                             "$ref": "#/components/schemas/PaymentService"
                         },
-                        "x-ballerina-name": "paymentServices",
-                        "description": "List of payment services"
+                        "x-ballerina-name": "paymentServices"
                     }
                 },
                 "x-objectArrayKey": "payment_services"
@@ -32479,13 +32479,13 @@
                         "x-ballerina-name": "url"
                     },
                     "LineAmountTypes": {
+                        "description": "Whether line amounts of the manual journal are tax exclusive, tax inclusive or have no tax",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/LineAmountTypes"
                             }
                         ],
-                        "x-ballerina-name": "lineAmountTypes",
-                        "description": "Whether line amounts of the manual journal are tax exclusive, tax inclusive or have no tax"
+                        "x-ballerina-name": "lineAmountTypes"
                     },
                     "ManualJournalID": {
                         "type": "string",
@@ -32561,11 +32561,11 @@
                 "properties": {
                     "Currencies": {
                         "type": "array",
+                        "description": "List of currencies",
                         "items": {
                             "$ref": "#/components/schemas/Currency"
                         },
-                        "x-ballerina-name": "currencies",
-                        "description": "List of currencies"
+                        "x-ballerina-name": "currencies"
                     }
                 },
                 "x-objectArrayKey": "currencies"
@@ -32583,20 +32583,20 @@
                 "type": "object",
                 "properties": {
                     "pagination": {
+                        "description": "Pagination details of the returned page of results",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Pagination"
                             }
-                        ],
-                        "description": "Pagination details of the returned page of results"
+                        ]
                     },
                     "Contacts": {
                         "type": "array",
+                        "description": "List of contacts",
                         "items": {
                             "$ref": "#/components/schemas/Contact"
                         },
-                        "x-ballerina-name": "contacts",
-                        "description": "List of contacts"
+                        "x-ballerina-name": "contacts"
                     },
                     "Warnings": {
                         "type": "array",
@@ -32614,11 +32614,11 @@
                 "properties": {
                     "ExpenseClaims": {
                         "type": "array",
+                        "description": "List of expense claims",
                         "items": {
                             "$ref": "#/components/schemas/ExpenseClaim"
                         },
-                        "x-ballerina-name": "expenseClaims",
-                        "description": "List of expense claims"
+                        "x-ballerina-name": "expenseClaims"
                     }
                 },
                 "x-objectArrayKey": "expense_claims"
@@ -32693,13 +32693,13 @@
                         "x-ballerina-name": "attachments"
                     },
                     "CurrencyCode": {
+                        "description": "Currency code of the purchase order",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/CurrencyCode"
                             }
                         ],
-                        "x-ballerina-name": "currencyCode",
-                        "description": "Currency code of the purchase order"
+                        "x-ballerina-name": "currencyCode"
                     },
                     "AttentionTo": {
                         "type": "string",
@@ -32781,22 +32781,22 @@
                         "x-ballerina-name": "date"
                     },
                     "Contact": {
+                        "description": "Contact associated with the purchase order",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Contact"
                             }
                         ],
-                        "x-ballerina-name": "contact",
-                        "description": "Contact associated with the purchase order"
+                        "x-ballerina-name": "contact"
                     },
                     "LineAmountTypes": {
+                        "description": "Whether line amounts of the purchase order are tax exclusive, tax inclusive or have no tax",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/LineAmountTypes"
                             }
                         ],
-                        "x-ballerina-name": "lineAmountTypes",
-                        "description": "Whether line amounts of the purchase order are tax exclusive, tax inclusive or have no tax"
+                        "x-ballerina-name": "lineAmountTypes"
                     },
                     "Total": {
                         "type": "number",
@@ -32929,22 +32929,22 @@
                         "x-ballerina-name": "date"
                     },
                     "Contact": {
+                        "description": "Contact associated with the prepayment",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Contact"
                             }
                         ],
-                        "x-ballerina-name": "contact",
-                        "description": "Contact associated with the prepayment"
+                        "x-ballerina-name": "contact"
                     },
                     "LineAmountTypes": {
+                        "description": "Whether line amounts of the prepayment are tax exclusive, tax inclusive or have no tax",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/LineAmountTypes"
                             }
                         ],
-                        "x-ballerina-name": "lineAmountTypes",
-                        "description": "Whether line amounts of the prepayment are tax exclusive, tax inclusive or have no tax"
+                        "x-ballerina-name": "lineAmountTypes"
                     },
                     "UpdatedDateUTCString": {
                         "type": "string",
@@ -32954,13 +32954,13 @@
                         "x-ballerina-name": "updatedDateUTCString"
                     },
                     "CurrencyCode": {
+                        "description": "Currency code of the prepayment",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/CurrencyCode"
                             }
                         ],
-                        "x-ballerina-name": "currencyCode",
-                        "description": "Currency code of the prepayment"
+                        "x-ballerina-name": "currencyCode"
                     },
                     "Type": {
                         "type": "string",
@@ -33016,11 +33016,11 @@
                 "properties": {
                     "Accounts": {
                         "type": "array",
+                        "description": "List of accounts",
                         "items": {
                             "$ref": "#/components/schemas/Account"
                         },
-                        "x-ballerina-name": "accounts",
-                        "description": "List of accounts"
+                        "x-ballerina-name": "accounts"
                     }
                 },
                 "x-objectArrayKey": "accounts"
@@ -33030,11 +33030,11 @@
                 "properties": {
                     "LinkedTransactions": {
                         "type": "array",
+                        "description": "List of linked transactions (billable expenses)",
                         "items": {
                             "$ref": "#/components/schemas/LinkedTransaction"
                         },
-                        "x-ballerina-name": "linkedTransactions",
-                        "description": "List of linked transactions (billable expenses)"
+                        "x-ballerina-name": "linkedTransactions"
                     }
                 },
                 "x-objectArrayKey": "linked_transactions"
@@ -33043,26 +33043,26 @@
                 "type": "object",
                 "properties": {
                     "RowType": {
+                        "description": "Type of the report row",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/RowType"
                             }
                         ],
-                        "x-ballerina-name": "rowType",
-                        "description": "Type of the report row"
+                        "x-ballerina-name": "rowType"
                     },
                     "Title": {
                         "type": "string",
-                        "x-ballerina-name": "title",
-                        "description": "Title of the report row"
+                        "description": "Title of the report row",
+                        "x-ballerina-name": "title"
                     },
                     "Cells": {
                         "type": "array",
+                        "description": "Cells of the report row",
                         "items": {
                             "$ref": "#/components/schemas/ReportCell"
                         },
-                        "x-ballerina-name": "cells",
-                        "description": "Cells of the report row"
+                        "x-ballerina-name": "cells"
                     }
                 }
             },
@@ -33129,13 +33129,13 @@
                         "x-ballerina-name": "updatedDateUTCString"
                     },
                     "CurrencyCode": {
+                        "description": "Currency code of the credit note",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/CurrencyCode"
                             }
                         ],
-                        "x-ballerina-name": "currencyCode",
-                        "description": "Currency code of the credit note"
+                        "x-ballerina-name": "currencyCode"
                     },
                     "InvoiceAddresses": {
                         "type": "array",
@@ -33242,22 +33242,22 @@
                         "x-ballerina-name": "date"
                     },
                     "Contact": {
+                        "description": "Contact associated with the credit note",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Contact"
                             }
                         ],
-                        "x-ballerina-name": "contact",
-                        "description": "Contact associated with the credit note"
+                        "x-ballerina-name": "contact"
                     },
                     "LineAmountTypes": {
+                        "description": "Whether line amounts of the credit note are tax exclusive, tax inclusive or have no tax",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/LineAmountTypes"
                             }
                         ],
-                        "x-ballerina-name": "lineAmountTypes",
-                        "description": "Whether line amounts of the credit note are tax exclusive, tax inclusive or have no tax"
+                        "x-ballerina-name": "lineAmountTypes"
                     },
                     "CISDeduction": {
                         "type": "number",
@@ -33474,13 +33474,13 @@
                         "x-ballerina-name": "status"
                     },
                     "Account": {
+                        "description": "Bank account the batch payment is made from",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Account"
                             }
                         ],
-                        "x-ballerina-name": "account",
-                        "description": "Bank account the batch payment is made from"
+                        "x-ballerina-name": "account"
                     },
                     "BatchPaymentID": {
                         "type": "string",
@@ -33649,11 +33649,11 @@
                 "properties": {
                     "Items": {
                         "type": "array",
+                        "description": "List of items",
                         "items": {
                             "$ref": "#/components/schemas/Item"
                         },
-                        "x-ballerina-name": "items",
-                        "description": "List of items"
+                        "x-ballerina-name": "items"
                     }
                 },
                 "x-objectArrayKey": "items"
@@ -33661,12 +33661,12 @@
             "Setup": {
                 "properties": {
                     "ConversionDate": {
+                        "description": "Conversion date from which balances are recorded",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/ConversionDate"
                             }
-                        ],
-                        "description": "Conversion date from which balances are recorded"
+                        ]
                     },
                     "ConversionBalances": {
                         "type": "array",
@@ -33677,10 +33677,10 @@
                     },
                     "Accounts": {
                         "type": "array",
+                        "description": "Chart of accounts to set up",
                         "items": {
                             "$ref": "#/components/schemas/Account"
-                        },
-                        "description": "Chart of accounts to set up"
+                        }
                     }
                 },
                 "externalDocs": {
@@ -33692,11 +33692,11 @@
                 "properties": {
                     "OnlineInvoices": {
                         "type": "array",
+                        "description": "List of online invoices",
                         "items": {
                             "$ref": "#/components/schemas/OnlineInvoice"
                         },
-                        "x-ballerina-name": "onlineInvoices",
-                        "description": "List of online invoices"
+                        "x-ballerina-name": "onlineInvoices"
                     }
                 },
                 "x-objectArrayKey": "online_invoices"
@@ -33767,13 +33767,13 @@
                         "x-ballerina-name": "accountCode"
                     },
                     "AccountType": {
+                        "description": "Type of the account the journal line is posted to",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/AccountType"
                             }
                         ],
-                        "x-ballerina-name": "accountType",
-                        "description": "Type of the account the journal line is posted to"
+                        "x-ballerina-name": "accountType"
                     },
                     "GrossAmount": {
                         "type": "number",
@@ -33798,34 +33798,34 @@
                 "type": "object",
                 "properties": {
                     "RowType": {
+                        "description": "Type of the report row",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/RowType"
                             }
                         ],
-                        "x-ballerina-name": "rowType",
-                        "description": "Type of the report row"
+                        "x-ballerina-name": "rowType"
                     },
                     "Title": {
                         "type": "string",
-                        "x-ballerina-name": "title",
-                        "description": "Title of the report row"
+                        "description": "Title of the report row",
+                        "x-ballerina-name": "title"
                     },
                     "Cells": {
                         "type": "array",
+                        "description": "Cells of the report row",
                         "items": {
                             "$ref": "#/components/schemas/ReportCell"
                         },
-                        "x-ballerina-name": "cells",
-                        "description": "Cells of the report row"
+                        "x-ballerina-name": "cells"
                     },
                     "Rows": {
                         "type": "array",
+                        "description": "Nested rows of the report section",
                         "items": {
                             "$ref": "#/components/schemas/ReportRow"
                         },
-                        "x-ballerina-name": "rows",
-                        "description": "Nested rows of the report section"
+                        "x-ballerina-name": "rows"
                     }
                 }
             },
@@ -33846,20 +33846,20 @@
                     },
                     "LineItems": {
                         "type": "array",
+                        "description": "Line items of the receipt",
                         "items": {
                             "$ref": "#/components/schemas/LineItem"
                         },
-                        "x-ballerina-name": "lineItems",
-                        "description": "Line items of the receipt"
+                        "x-ballerina-name": "lineItems"
                     },
                     "User": {
+                        "description": "User who created the receipt",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/User"
                             }
                         ],
-                        "x-ballerina-name": "user",
-                        "description": "User who created the receipt"
+                        "x-ballerina-name": "user"
                     },
                     "UpdatedDateUTC": {
                         "type": "string",
@@ -33918,22 +33918,22 @@
                         "x-ballerina-name": "url"
                     },
                     "Contact": {
+                        "description": "Contact associated with the receipt",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Contact"
                             }
                         ],
-                        "x-ballerina-name": "contact",
-                        "description": "Contact associated with the receipt"
+                        "x-ballerina-name": "contact"
                     },
                     "LineAmountTypes": {
+                        "description": "Whether line amounts of the receipt are tax exclusive, tax inclusive or have no tax",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/LineAmountTypes"
                             }
                         ],
-                        "x-ballerina-name": "lineAmountTypes",
-                        "description": "Whether line amounts of the receipt are tax exclusive, tax inclusive or have no tax"
+                        "x-ballerina-name": "lineAmountTypes"
                     },
                     "ReceiptID": {
                         "type": "string",
@@ -33978,20 +33978,20 @@
                 "type": "object",
                 "properties": {
                     "pagination": {
+                        "description": "Pagination details of the returned page of results",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Pagination"
                             }
-                        ],
-                        "description": "Pagination details of the returned page of results"
+                        ]
                     },
                     "PurchaseOrders": {
                         "type": "array",
+                        "description": "List of purchase orders",
                         "items": {
                             "$ref": "#/components/schemas/PurchaseOrder"
                         },
-                        "x-ballerina-name": "purchaseOrders",
-                        "description": "List of purchase orders"
+                        "x-ballerina-name": "purchaseOrders"
                     },
                     "Warnings": {
                         "type": "array",
@@ -34009,17 +34009,17 @@
                 "properties": {
                     "Outstanding": {
                         "type": "number",
+                        "description": "Outstanding accounts payable amount",
                         "format": "double",
                         "x-is-money": true,
-                        "x-ballerina-name": "outstanding",
-                        "description": "Outstanding accounts payable amount"
+                        "x-ballerina-name": "outstanding"
                     },
                     "Overdue": {
                         "type": "number",
+                        "description": "Overdue accounts payable amount",
                         "format": "double",
                         "x-is-money": true,
-                        "x-ballerina-name": "overdue",
-                        "description": "Overdue accounts payable amount"
+                        "x-ballerina-name": "overdue"
                     }
                 }
             },
@@ -34089,11 +34089,11 @@
                 "properties": {
                     "CISSettings": {
                         "type": "array",
+                        "description": "CIS settings of the contact",
                         "items": {
                             "$ref": "#/components/schemas/CISSetting"
                         },
-                        "x-ballerina-name": "cISSettings",
-                        "description": "CIS settings of the contact"
+                        "x-ballerina-name": "cISSettings"
                     }
                 },
                 "x-objectArrayKey": "cis_settings"
@@ -34112,8 +34112,8 @@
                 "properties": {
                     "Description": {
                         "type": "string",
-                        "x-ballerina-name": "description",
-                        "description": "Description of the external link"
+                        "description": "Description of the external link",
+                        "x-ballerina-name": "description"
                     },
                     "LinkType": {
                         "type": "string",
@@ -34141,22 +34141,22 @@
                 "type": "object",
                 "properties": {
                     "Account": {
+                        "description": "Account the payment is made from or to",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Account"
                             }
                         ],
-                        "x-ballerina-name": "account",
-                        "description": "Account the payment is made from or to"
+                        "x-ballerina-name": "account"
                     },
                     "Invoice": {
+                        "description": "Invoice the payment is applied to",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Invoice"
                             }
                         ],
-                        "x-ballerina-name": "invoice",
-                        "description": "Invoice the payment is applied to"
+                        "x-ballerina-name": "invoice"
                     },
                     "CurrencyRate": {
                         "type": "number",
@@ -34189,13 +34189,13 @@
                         "x-ballerina-name": "validationErrors"
                     },
                     "CreditNote": {
+                        "description": "Credit note the payment is applied to",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/CreditNote"
                             }
                         ],
-                        "x-ballerina-name": "creditNote",
-                        "description": "Credit note the payment is applied to"
+                        "x-ballerina-name": "creditNote"
                     },
                     "PaymentID": {
                         "type": "string",
@@ -34205,13 +34205,13 @@
                         "x-ballerina-name": "paymentID"
                     },
                     "BatchPayment": {
+                        "description": "Batch payment the payment belongs to",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/BatchPayment"
                             }
                         ],
-                        "x-ballerina-name": "batchPayment",
-                        "description": "Batch payment the payment belongs to"
+                        "x-ballerina-name": "batchPayment"
                     },
                     "UpdatedDateUTCString": {
                         "type": "string",
@@ -34254,13 +34254,13 @@
                         "x-ballerina-name": "invoiceNumber"
                     },
                     "Overpayment": {
+                        "description": "Overpayment the payment is applied to",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Overpayment"
                             }
                         ],
-                        "x-ballerina-name": "overpayment",
-                        "description": "Overpayment the payment is applied to"
+                        "x-ballerina-name": "overpayment"
                     },
                     "Status": {
                         "type": "string",
@@ -34322,13 +34322,13 @@
                         "x-ballerina-name": "details"
                     },
                     "Prepayment": {
+                        "description": "Prepayment the payment is applied to",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Prepayment"
                             }
                         ],
-                        "x-ballerina-name": "prepayment",
-                        "description": "Prepayment the payment is applied to"
+                        "x-ballerina-name": "prepayment"
                     },
                     "HasValidationErrors": {
                         "type": "boolean",
@@ -34464,22 +34464,22 @@
                         "x-ballerina-name": "fromIsReconciled"
                     },
                     "FromBankAccount": {
+                        "description": "Bank account the money is transferred from",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Account"
                             }
                         ],
-                        "x-ballerina-name": "fromBankAccount",
-                        "description": "Bank account the money is transferred from"
+                        "x-ballerina-name": "fromBankAccount"
                     },
                     "ToBankAccount": {
+                        "description": "Bank account the money is transferred to",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Account"
                             }
                         ],
-                        "x-ballerina-name": "toBankAccount",
-                        "description": "Bank account the money is transferred to"
+                        "x-ballerina-name": "toBankAccount"
                     },
                     "FromBankTransactionID": {
                         "type": "string",
@@ -34520,17 +34520,17 @@
                 "properties": {
                     "Outstanding": {
                         "type": "number",
+                        "description": "Outstanding accounts receivable amount",
                         "format": "double",
                         "x-is-money": true,
-                        "x-ballerina-name": "outstanding",
-                        "description": "Outstanding accounts receivable amount"
+                        "x-ballerina-name": "outstanding"
                     },
                     "Overdue": {
                         "type": "number",
+                        "description": "Overdue accounts receivable amount",
                         "format": "double",
                         "x-is-money": true,
-                        "x-ballerina-name": "overdue",
-                        "description": "Overdue accounts receivable amount"
+                        "x-ballerina-name": "overdue"
                     }
                 }
             },
@@ -34702,19 +34702,19 @@
                 "properties": {
                     "BankTransactions": {
                         "type": "array",
+                        "description": "List of bank transactions",
                         "items": {
                             "$ref": "#/components/schemas/BankTransaction"
                         },
-                        "x-ballerina-name": "bankTransactions",
-                        "description": "List of bank transactions"
+                        "x-ballerina-name": "bankTransactions"
                     },
                     "pagination": {
+                        "description": "Pagination details of the returned page of results",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Pagination"
                             }
-                        ],
-                        "description": "Pagination details of the returned page of results"
+                        ]
                     },
                     "Warnings": {
                         "type": "array",
@@ -34732,11 +34732,11 @@
                 "properties": {
                     "Allocations": {
                         "type": "array",
+                        "description": "List of allocations",
                         "items": {
                             "$ref": "#/components/schemas/Allocation"
                         },
-                        "x-ballerina-name": "allocations",
-                        "description": "List of allocations"
+                        "x-ballerina-name": "allocations"
                     }
                 },
                 "x-objectArrayKey": "allocations"
@@ -34881,22 +34881,22 @@
                         "x-ballerina-name": "attachments"
                     },
                     "Contact": {
+                        "description": "Contact associated with the repeating invoice template",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Contact"
                             }
                         ],
-                        "x-ballerina-name": "contact",
-                        "description": "Contact associated with the repeating invoice template"
+                        "x-ballerina-name": "contact"
                     },
                     "LineAmountTypes": {
+                        "description": "Whether line amounts of the repeating invoice template are tax exclusive, tax inclusive or have no tax",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/LineAmountTypes"
                             }
                         ],
-                        "x-ballerina-name": "lineAmountTypes",
-                        "description": "Whether line amounts of the repeating invoice template are tax exclusive, tax inclusive or have no tax"
+                        "x-ballerina-name": "lineAmountTypes"
                     },
                     "IncludePDF": {
                         "type": "boolean",
@@ -34906,13 +34906,13 @@
                         "x-ballerina-name": "includePDF"
                     },
                     "CurrencyCode": {
+                        "description": "Currency code of the repeating invoice template",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/CurrencyCode"
                             }
                         ],
-                        "x-ballerina-name": "currencyCode",
-                        "description": "Currency code of the repeating invoice template"
+                        "x-ballerina-name": "currencyCode"
                     },
                     "SendCopy": {
                         "type": "boolean",
@@ -34938,13 +34938,13 @@
                         "x-ballerina-name": "totalTax"
                     },
                     "Schedule": {
+                        "description": "Schedule on which the repeating invoice is created",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Schedule"
                             }
                         ],
-                        "x-ballerina-name": "schedule",
-                        "description": "Schedule on which the repeating invoice is created"
+                        "x-ballerina-name": "schedule"
                     },
                     "Total": {
                         "type": "number",
@@ -34981,22 +34981,22 @@
                 "type": "object",
                 "properties": {
                     "Organisation": {
+                        "description": "Import summary of the organisation details",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/ImportSummaryOrganisation"
                             }
                         ],
-                        "x-ballerina-name": "organisation",
-                        "description": "Import summary of the organisation details"
+                        "x-ballerina-name": "organisation"
                     },
                     "Accounts": {
+                        "description": "Import summary of the accounts",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/ImportSummaryAccounts"
                             }
                         ],
-                        "x-ballerina-name": "accounts",
-                        "description": "Import summary of the accounts"
+                        "x-ballerina-name": "accounts"
                     }
                 },
                 "description": "A summary of the import from setup endpoint",
@@ -35009,9 +35009,9 @@
                 "properties": {
                     "CreditNoteID": {
                         "type": "string",
+                        "description": "Identifier of the credit note the error relates to",
                         "format": "uuid",
-                        "x-ballerina-name": "creditNoteID",
-                        "description": "Identifier of the credit note the error relates to"
+                        "x-ballerina-name": "creditNoteID"
                     },
                     "BatchPaymentID": {
                         "type": "string",
@@ -35029,33 +35029,33 @@
                     },
                     "PurchaseOrderID": {
                         "type": "string",
+                        "description": "Identifier of the purchase order the error relates to",
                         "format": "uuid",
-                        "x-ballerina-name": "purchaseOrderID",
-                        "description": "Identifier of the purchase order the error relates to"
+                        "x-ballerina-name": "purchaseOrderID"
                     },
                     "ContactID": {
                         "type": "string",
+                        "description": "Identifier of the contact the error relates to",
                         "format": "uuid",
-                        "x-ballerina-name": "contactID",
-                        "description": "Identifier of the contact the error relates to"
+                        "x-ballerina-name": "contactID"
                     },
                     "InvoiceID": {
                         "type": "string",
+                        "description": "Identifier of the invoice the error relates to",
                         "format": "uuid",
-                        "x-ballerina-name": "invoiceID",
-                        "description": "Identifier of the invoice the error relates to"
+                        "x-ballerina-name": "invoiceID"
                     },
                     "ItemID": {
                         "type": "string",
+                        "description": "Identifier of the item the error relates to",
                         "format": "uuid",
-                        "x-ballerina-name": "itemID",
-                        "description": "Identifier of the item the error relates to"
+                        "x-ballerina-name": "itemID"
                     },
                     "BankTransactionID": {
                         "type": "string",
+                        "description": "Identifier of the bank transaction the error relates to",
                         "format": "uuid",
-                        "x-ballerina-name": "bankTransactionID",
-                        "description": "Identifier of the bank transaction the error relates to"
+                        "x-ballerina-name": "bankTransactionID"
                     }
                 },
                 "externalDocs": {
@@ -35075,20 +35075,20 @@
                 "type": "object",
                 "properties": {
                     "pagination": {
+                        "description": "Pagination details of the returned page of results",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Pagination"
                             }
-                        ],
-                        "description": "Pagination details of the returned page of results"
+                        ]
                     },
                     "Invoices": {
                         "type": "array",
+                        "description": "List of invoices",
                         "items": {
                             "$ref": "#/components/schemas/Invoice"
                         },
-                        "x-ballerina-name": "invoices",
-                        "description": "List of invoices"
+                        "x-ballerina-name": "invoices"
                     },
                     "Warnings": {
                         "type": "array",
@@ -35137,11 +35137,11 @@
                 "properties": {
                     "Attachments": {
                         "type": "array",
+                        "description": "List of attachments",
                         "items": {
                             "$ref": "#/components/schemas/Attachment"
                         },
-                        "x-ballerina-name": "attachments",
-                        "description": "List of attachments"
+                        "x-ballerina-name": "attachments"
                     }
                 },
                 "x-objectArrayKey": "attachments"
@@ -35214,13 +35214,13 @@
                         "x-ballerina-name": "hasAttachments"
                     },
                     "BankAccount": {
+                        "description": "Bank account of the transaction",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Account"
                             }
                         ],
-                        "x-ballerina-name": "bankAccount",
-                        "description": "Bank account of the transaction"
+                        "x-ballerina-name": "bankAccount"
                     },
                     "IsReconciled": {
                         "type": "boolean",
@@ -35246,31 +35246,31 @@
                         "x-ballerina-name": "url"
                     },
                     "Contact": {
+                        "description": "Contact associated with the bank transaction",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Contact"
                             }
                         ],
-                        "x-ballerina-name": "contact",
-                        "description": "Contact associated with the bank transaction"
+                        "x-ballerina-name": "contact"
                     },
                     "LineAmountTypes": {
+                        "description": "Whether line amounts of the bank transaction are tax exclusive, tax inclusive or have no tax",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/LineAmountTypes"
                             }
                         ],
-                        "x-ballerina-name": "lineAmountTypes",
-                        "description": "Whether line amounts of the bank transaction are tax exclusive, tax inclusive or have no tax"
+                        "x-ballerina-name": "lineAmountTypes"
                     },
                     "CurrencyCode": {
+                        "description": "Currency code of the bank transaction",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/CurrencyCode"
                             }
                         ],
-                        "x-ballerina-name": "currencyCode",
-                        "description": "Currency code of the bank transaction"
+                        "x-ballerina-name": "currencyCode"
                     },
                     "Type": {
                         "type": "string",
@@ -35334,11 +35334,11 @@
                 "properties": {
                     "InvoiceReminders": {
                         "type": "array",
+                        "description": "List of invoice reminder settings",
                         "items": {
                             "$ref": "#/components/schemas/InvoiceReminder"
                         },
-                        "x-ballerina-name": "invoiceReminders",
-                        "description": "List of invoice reminder settings"
+                        "x-ballerina-name": "invoiceReminders"
                     }
                 },
                 "x-objectArrayKey": "invoice_reminders"
@@ -35348,11 +35348,11 @@
                 "properties": {
                     "BankTransfers": {
                         "type": "array",
+                        "description": "List of bank transfers",
                         "items": {
                             "$ref": "#/components/schemas/BankTransfer"
                         },
-                        "x-ballerina-name": "bankTransfers",
-                        "description": "List of bank transfers"
+                        "x-ballerina-name": "bankTransfers"
                     }
                 },
                 "x-objectArrayKey": "bank_transfers"
@@ -35448,11 +35448,11 @@
                 "properties": {
                     "BankTransfers": {
                         "type": "array",
+                        "description": "List of bank transfers to delete",
                         "items": {
                             "$ref": "#/components/schemas/BankTransferDelete"
                         },
-                        "x-ballerina-name": "bankTransfers",
-                        "description": "List of bank transfers to delete"
+                        "x-ballerina-name": "bankTransfers"
                     }
                 },
                 "x-objectArrayKey": "bank_transfers"
@@ -35472,13 +35472,13 @@
                         "x-ballerina-name": "isDeleted"
                     },
                     "Invoice": {
+                        "description": "Invoice the amount is allocated to",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Invoice"
                             }
                         ],
-                        "x-ballerina-name": "invoice",
-                        "description": "Invoice the amount is allocated to"
+                        "x-ballerina-name": "invoice"
                     },
                     "StatusAttributeString": {
                         "type": "string",
@@ -35500,13 +35500,13 @@
                         "x-ballerina-name": "allocationID"
                     },
                     "CreditNote": {
+                        "description": "Credit note the amount is allocated from",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/CreditNote"
                             }
                         ],
-                        "x-ballerina-name": "creditNote",
-                        "description": "Credit note the amount is allocated from"
+                        "x-ballerina-name": "creditNote"
                     },
                     "Amount": {
                         "type": "number",
@@ -35516,22 +35516,22 @@
                         "x-ballerina-name": "amount"
                     },
                     "Prepayment": {
+                        "description": "Prepayment the amount is allocated from",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Prepayment"
                             }
                         ],
-                        "x-ballerina-name": "prepayment",
-                        "description": "Prepayment the amount is allocated from"
+                        "x-ballerina-name": "prepayment"
                     },
                     "Overpayment": {
+                        "description": "Overpayment the amount is allocated from",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Overpayment"
                             }
                         ],
-                        "x-ballerina-name": "overpayment",
-                        "description": "Overpayment the amount is allocated from"
+                        "x-ballerina-name": "overpayment"
                     },
                     "Date": {
                         "type": "string",
@@ -35561,6 +35561,7 @@
                     },
                     "PhoneType": {
                         "type": "string",
+                        "description": "Type of the phone number",
                         "enum": [
                             "DEFAULT",
                             "DDI",
@@ -35568,8 +35569,7 @@
                             "FAX",
                             "OFFICE"
                         ],
-                        "x-ballerina-name": "phoneType",
-                        "description": "Type of the phone number"
+                        "x-ballerina-name": "phoneType"
                     },
                     "PhoneNumber": {
                         "maxLength": 50,
@@ -35586,20 +35586,20 @@
                 "type": "object",
                 "properties": {
                     "pagination": {
+                        "description": "Pagination details of the returned page of results",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Pagination"
                             }
-                        ],
-                        "description": "Pagination details of the returned page of results"
+                        ]
                     },
                     "ManualJournals": {
                         "type": "array",
+                        "description": "List of manual journals",
                         "items": {
                             "$ref": "#/components/schemas/ManualJournal"
                         },
-                        "x-ballerina-name": "manualJournals",
-                        "description": "List of manual journals"
+                        "x-ballerina-name": "manualJournals"
                     },
                     "Warnings": {
                         "type": "array",
@@ -35617,11 +35617,11 @@
                 "properties": {
                     "TrackingCategories": {
                         "type": "array",
+                        "description": "List of tracking categories",
                         "items": {
                             "$ref": "#/components/schemas/TrackingCategory"
                         },
-                        "x-ballerina-name": "trackingCategories",
-                        "description": "List of tracking categories"
+                        "x-ballerina-name": "trackingCategories"
                     }
                 },
                 "x-objectArrayKey": "tracking_categories"
@@ -36208,18 +36208,18 @@
                 "properties": {
                     "Description": {
                         "type": "string",
-                        "x-ballerina-name": "description",
-                        "description": "Description of the report field"
+                        "description": "Description of the report field",
+                        "x-ballerina-name": "description"
                     },
                     "FieldID": {
                         "type": "string",
-                        "x-ballerina-name": "fieldID",
-                        "description": "Identifier of the report field"
+                        "description": "Identifier of the report field",
+                        "x-ballerina-name": "fieldID"
                     },
                     "Value": {
                         "type": "string",
-                        "x-ballerina-name": "value",
-                        "description": "Value of the report field"
+                        "description": "Value of the report field",
+                        "x-ballerina-name": "value"
                     }
                 }
             },
@@ -36257,13 +36257,13 @@
                 "type": "object",
                 "properties": {
                     "Timezone": {
+                        "description": "Time zone of the organisation",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/TimeZone"
                             }
                         ],
-                        "x-ballerina-name": "timezone",
-                        "description": "Time zone of the organisation"
+                        "x-ballerina-name": "timezone"
                     },
                     "OrganisationID": {
                         "type": "string",
@@ -36273,13 +36273,13 @@
                         "x-ballerina-name": "organisationID"
                     },
                     "PaymentTerms": {
+                        "description": "Default payment terms of the organisation",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/PaymentTerm"
                             }
                         ],
-                        "x-ballerina-name": "paymentTerms",
-                        "description": "Default payment terms of the organisation"
+                        "x-ballerina-name": "paymentTerms"
                     },
                     "Name": {
                         "type": "string",
@@ -36356,13 +36356,13 @@
                         "x-ballerina-name": "taxNumber"
                     },
                     "CountryCode": {
+                        "description": "Country code of the organisation",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/CountryCode"
                             }
                         ],
-                        "x-ballerina-name": "countryCode",
-                        "description": "Country code of the organisation"
+                        "x-ballerina-name": "countryCode"
                     },
                     "ExternalLinks": {
                         "type": "array",
@@ -36529,13 +36529,13 @@
                         "x-ballerina-name": "lineOfBusiness"
                     },
                     "BaseCurrency": {
+                        "description": "Base currency of the organisation",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/CurrencyCode"
                             }
                         ],
-                        "x-ballerina-name": "baseCurrency",
-                        "description": "Base currency of the organisation"
+                        "x-ballerina-name": "baseCurrency"
                     },
                     "Class": {
                         "type": "string",
@@ -36602,10 +36602,10 @@
                     },
                     "Contacts": {
                         "type": "array",
+                        "description": "Contacts included in the 1099 report",
                         "items": {
                             "$ref": "#/components/schemas/TenNinetyNineContact"
-                        },
-                        "description": "Contacts included in the 1099 report"
+                        }
                     }
                 },
                 "externalDocs": {
@@ -36846,13 +36846,13 @@
                         "x-ballerina-name": "taxType"
                     },
                     "Item": {
+                        "description": "Item details of the line item",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/LineItemItem"
                             }
                         ],
-                        "x-ballerina-name": "item",
-                        "description": "Item details of the line item"
+                        "x-ballerina-name": "item"
                     },
                     "TaxAmount": {
                         "type": "number",
@@ -36909,11 +36909,11 @@
                 "properties": {
                     "Reports": {
                         "type": "array",
+                        "description": "List of reports",
                         "items": {
                             "$ref": "#/components/schemas/Report"
                         },
-                        "x-ballerina-name": "reports",
-                        "description": "List of reports"
+                        "x-ballerina-name": "reports"
                     }
                 },
                 "x-objectArrayKey": "reports"
@@ -36953,22 +36953,22 @@
                 "type": "object",
                 "properties": {
                     "Sales": {
+                        "description": "Default payment terms for sales invoices",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Bill"
                             }
                         ],
-                        "x-ballerina-name": "sales",
-                        "description": "Default payment terms for sales invoices"
+                        "x-ballerina-name": "sales"
                     },
                     "Bills": {
+                        "description": "Default payment terms for bills",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Bill"
                             }
                         ],
-                        "x-ballerina-name": "bills",
-                        "description": "Default payment terms for bills"
+                        "x-ballerina-name": "bills"
                     }
                 },
                 "externalDocs": {
@@ -37060,13 +37060,13 @@
                         "x-ballerina-name": "website"
                     },
                     "PaymentTerms": {
+                        "description": "Default payment terms of the contact",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/PaymentTerm"
                             }
                         ],
-                        "x-ballerina-name": "paymentTerms",
-                        "description": "Default payment terms of the contact"
+                        "x-ballerina-name": "paymentTerms"
                     },
                     "Attachments": {
                         "type": "array",
@@ -37153,13 +37153,13 @@
                         "x-ballerina-name": "purchasesDefaultAccountCode"
                     },
                     "BatchPayments": {
+                        "description": "Batch payment details of the contact",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/BatchPaymentDetails"
                             }
                         ],
-                        "x-ballerina-name": "batchPayments",
-                        "description": "Batch payment details of the contact"
+                        "x-ballerina-name": "batchPayments"
                     },
                     "ContactNumber": {
                         "maxLength": 50,
@@ -37174,13 +37174,13 @@
                         "x-ballerina-name": "taxNumber"
                     },
                     "BrandingTheme": {
+                        "description": "Default branding theme of the contact",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/BrandingTheme"
                             }
                         ],
-                        "x-ballerina-name": "brandingTheme",
-                        "description": "Default branding theme of the contact"
+                        "x-ballerina-name": "brandingTheme"
                     },
                     "ContactGroups": {
                         "type": "array",
@@ -37201,13 +37201,13 @@
                         "x-ballerina-name": "statusAttributeString"
                     },
                     "DefaultCurrency": {
+                        "description": "Default currency of the contact",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/CurrencyCode"
                             }
                         ],
-                        "x-ballerina-name": "defaultCurrency",
-                        "description": "Default currency of the contact"
+                        "x-ballerina-name": "defaultCurrency"
                     },
                     "FirstName": {
                         "maxLength": 255,
@@ -37223,13 +37223,13 @@
                         "x-ballerina-name": "hasAttachments"
                     },
                     "Balances": {
+                        "description": "Accounts receivable and payable balances of the contact",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Balances"
                             }
                         ],
-                        "x-ballerina-name": "balances",
-                        "description": "Accounts receivable and payable balances of the contact"
+                        "x-ballerina-name": "balances"
                     },
                     "ContactID": {
                         "type": "string",
@@ -37329,13 +37329,13 @@
                 "type": "object",
                 "properties": {
                     "Status": {
+                        "description": "Status of the quote",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/QuoteStatusCodes"
                             }
                         ],
-                        "x-ballerina-name": "status",
-                        "description": "Status of the quote"
+                        "x-ballerina-name": "status"
                     },
                     "LineItems": {
                         "type": "array",
@@ -37423,31 +37423,31 @@
                         "x-ballerina-name": "date"
                     },
                     "Contact": {
+                        "description": "Contact associated with the quote",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/Contact"
                             }
                         ],
-                        "x-ballerina-name": "contact",
-                        "description": "Contact associated with the quote"
+                        "x-ballerina-name": "contact"
                     },
                     "LineAmountTypes": {
+                        "description": "Whether line amounts of the quote are tax exclusive, tax inclusive or have no tax",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/QuoteLineAmountTypes"
                             }
                         ],
-                        "x-ballerina-name": "lineAmountTypes",
-                        "description": "Whether line amounts of the quote are tax exclusive, tax inclusive or have no tax"
+                        "x-ballerina-name": "lineAmountTypes"
                     },
                     "CurrencyCode": {
+                        "description": "Currency code of the quote",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/CurrencyCode"
                             }
                         ],
-                        "x-ballerina-name": "currencyCode",
-                        "description": "Currency code of the quote"
+                        "x-ballerina-name": "currencyCode"
                     },
                     "QuoteNumber": {
                         "maxLength": 255,
@@ -37570,12 +37570,12 @@
             "ImportSummaryObject": {
                 "properties": {
                     "ImportSummary": {
+                        "description": "Summary of the setup import",
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/ImportSummary"
                             }
-                        ],
-                        "description": "Summary of the setup import"
+                        ]
                     }
                 },
                 "externalDocs": {
@@ -37681,11 +37681,11 @@
                 "properties": {
                     "Receipts": {
                         "type": "array",
+                        "description": "List of receipts",
                         "items": {
                             "$ref": "#/components/schemas/Receipt"
                         },
-                        "x-ballerina-name": "receipts",
-                        "description": "List of receipts"
+                        "x-ballerina-name": "receipts"
                     }
                 },
                 "x-objectArrayKey": "receipts"

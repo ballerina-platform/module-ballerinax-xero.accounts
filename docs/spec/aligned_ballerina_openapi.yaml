@@ -925,6 +925,7 @@ paths:
       parameters:
       - $ref: '#/components/parameters/idempotencyKey'
       requestBody:
+        description: Batch payments to delete, each identified by ID with status set to DELETED
         content:
           application/json:
             schema:
@@ -933,7 +934,6 @@ paths:
               BatchPaymentID: 9bf296e9-0748-4d29-a3dc-24dde1098030
               Status: DELETED
         required: true
-        description: Batch payments to delete, each identified by ID with status set to DELETED
       responses:
         '200':
           description: Success - return response of type BatchPayments array for updated BatchPayment
@@ -1071,6 +1071,7 @@ paths:
       - $ref: '#/components/parameters/idempotencyKey'
       - $ref: '#/components/parameters/BatchPaymentID'
       requestBody:
+        description: Status update that deletes the batch payment identified in the path
         content:
           application/json:
             schema:
@@ -1078,7 +1079,6 @@ paths:
             example:
               Status: DELETED
         required: true
-        description: Status update that deletes the batch payment identified in the path
       responses:
         '200':
           description: Success - return response of type BatchPayments array for updated BatchPayment
@@ -1621,6 +1621,7 @@ paths:
       - $ref: '#/components/parameters/unitdp'
       - $ref: '#/components/parameters/idempotencyKey'
       requestBody:
+        description: Bank transactions to create or update
         content:
           application/json:
             schema:
@@ -1638,7 +1639,6 @@ paths:
                 BankAccount:
                   Code: 088
         required: true
-        description: Bank transactions to create or update
       responses:
         '200':
           description: Success - return response of type BankTransactions array with new BankTransaction
@@ -1976,6 +1976,7 @@ paths:
       - $ref: '#/components/parameters/unitdp'
       - $ref: '#/components/parameters/idempotencyKey'
       requestBody:
+        description: Bank transaction with the fields to update
         content:
           application/json:
             schema:
@@ -2042,7 +2043,6 @@ paths:
                 BankTransactionID: 00000000-0000-0000-0000-000000000000
                 UpdatedDateUTC: '2019-02-26T12:39:27.813-08:00'
         required: true
-        description: Bank transaction with the fields to update
       responses:
         '200':
           description: Success - return response of type BankTransactions array with updated BankTransaction
@@ -2914,6 +2914,7 @@ paths:
       - $ref: '#/components/parameters/idempotencyKey'
       - $ref: '#/components/parameters/BankTransferID'
       requestBody:
+        description: Status update that deletes the bank transfer identified in the path
         content:
           application/json:
             schema:
@@ -2921,7 +2922,6 @@ paths:
             example:
               Status: DELETED
         required: true
-        description: Status update that deletes the bank transfer identified in the path
       responses:
         '200':
           description: Success - return response of BankTransfers array with one deleted BankTransfer
@@ -3049,6 +3049,7 @@ paths:
     put:
       tags:
       - Accounting
+      summary: Uploads an attachment to a specific bank transfer by file name
       operationId: createBankTransferAttachmentByFileName
       parameters:
       - $ref: '#/components/parameters/idempotencyKey'
@@ -3088,10 +3089,10 @@ paths:
       - OAuth2:
         - accounting.attachments
       x-hasAccountingValidationError: true
-      summary: Uploads an attachment to a specific bank transfer by file name
     post:
       tags:
       - Accounting
+      summary: Updates an attachment on a specific bank transfer by file name
       operationId: updateBankTransferAttachmentByFileName
       parameters:
       - $ref: '#/components/parameters/idempotencyKey'
@@ -3131,7 +3132,6 @@ paths:
       - OAuth2:
         - accounting.attachments
       x-hasAccountingValidationError: true
-      summary: Updates an attachment on a specific bank transfer by file name
     parameters:
     - $ref: '#/components/parameters/requiredHeader'
   /BankTransfers/{bankTransferID}/History:
@@ -3998,6 +3998,7 @@ paths:
       - $ref: '#/components/parameters/summarizeErrors'
       - $ref: '#/components/parameters/idempotencyKey'
       requestBody:
+        description: Contacts to create or update
         content:
           application/json:
             schema:
@@ -4018,7 +4019,6 @@ paths:
                     Day: 10
                     Type: DAYSAFTERBILLMONTH
         required: true
-        description: Contacts to create or update
       responses:
         '200':
           description: Success - return response of type Contacts array with newly created Contact
@@ -4638,6 +4638,7 @@ paths:
     put:
       tags:
       - Accounting
+      summary: Uploads an attachment to a specific contact by file name
       operationId: createContactAttachmentByFileName
       parameters:
       - $ref: '#/components/parameters/idempotencyKey'
@@ -4676,10 +4677,10 @@ paths:
       - OAuth2:
         - accounting.attachments
       x-hasAccountingValidationError: true
-      summary: Uploads an attachment to a specific contact by file name
     post:
       tags:
       - Accounting
+      summary: Updates an attachment on a specific contact by file name
       operationId: updateContactAttachmentByFileName
       parameters:
       - $ref: '#/components/parameters/idempotencyKey'
@@ -4718,7 +4719,6 @@ paths:
       - OAuth2:
         - accounting.attachments
       x-hasAccountingValidationError: true
-      summary: Updates an attachment on a specific contact by file name
     parameters:
     - $ref: '#/components/parameters/requiredHeader'
   /Contacts/{contactID}/CISSettings:
@@ -6984,6 +6984,7 @@ paths:
       - $ref: '#/components/parameters/idempotencyKey'
       - $ref: '#/components/parameters/ExpenseClaimID'
       requestBody:
+        description: Expense claim with the fields to update
         content:
           application/json:
             schema:
@@ -6997,7 +6998,6 @@ paths:
                 - Lineitems: []
                   ReceiptID: dc1c7f6d-0a4c-402f-acac-551d62ce5816
         required: true
-        description: Expense claim with the fields to update
       responses:
         '200':
           description: Success - return response of type ExpenseClaims array with updated ExpenseClaim
@@ -7834,6 +7834,7 @@ paths:
       - $ref: '#/components/parameters/idempotencyKey'
       - $ref: '#/components/parameters/allowBackorders'
       requestBody:
+        description: Sales invoices or purchase bills to create or update
         content:
           application/json:
             schema:
@@ -7855,7 +7856,6 @@ paths:
                 Reference: Website Design
                 Status: AUTHORISED
         required: true
-        description: Sales invoices or purchase bills to create or update
       responses:
         '200':
           description: Success - return response of type Invoices array with newly created Invoice
@@ -8265,6 +8265,7 @@ paths:
       - $ref: '#/components/parameters/idempotencyKey'
       - $ref: '#/components/parameters/allowBackorders'
       requestBody:
+        description: Invoice with the fields to update
         content:
           application/json:
             schema:
@@ -8277,7 +8278,6 @@ paths:
                 Contact: {}
                 Type: ACCPAY
         required: true
-        description: Invoice with the fields to update
       responses:
         '200':
           description: Success - return response of type Invoices array with updated Invoice
@@ -8630,13 +8630,13 @@ paths:
       - $ref: '#/components/parameters/idempotencyKey'
       - $ref: '#/components/parameters/InvoiceID'
       requestBody:
+        description: Empty request body that triggers the invoice email
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/RequestEmpty'
             example: {}
         required: true
-        description: Empty request body that triggers the invoice email
       responses:
         '204':
           description: Success - return response 204 no content
@@ -8945,6 +8945,7 @@ paths:
       - $ref: '#/components/parameters/unitdp'
       - $ref: '#/components/parameters/idempotencyKey'
       requestBody:
+        description: Items to create or update
         content:
           application/json:
             schema:
@@ -8955,7 +8956,6 @@ paths:
                 Name: ItemName XYZ
                 Description: Item Description ABC
         required: true
-        description: Items to create or update
       responses:
         '200':
           description: Success - return response of type Items array with newly created Item
@@ -9075,6 +9075,7 @@ paths:
       - $ref: '#/components/parameters/unitdp'
       - $ref: '#/components/parameters/idempotencyKey'
       requestBody:
+        description: Item with the fields to update
         content:
           application/json:
             schema:
@@ -9084,7 +9085,6 @@ paths:
               - Code: ItemCode123
                 Description: Description 123
         required: true
-        description: Item with the fields to update
       responses:
         '200':
           description: Success - return response of type Items array with updated Item
@@ -9718,6 +9718,7 @@ paths:
       - $ref: '#/components/parameters/idempotencyKey'
       - $ref: '#/components/parameters/LinkedTransactionID'
       requestBody:
+        description: Linked transaction with the fields to update
         content:
           application/json:
             schema:
@@ -9727,7 +9728,6 @@ paths:
               - SourceTransactionID: 00000000-0000-0000-0000-000000000000
                 SourceLineItemID: 00000000-0000-0000-0000-000000000000
         required: true
-        description: Linked transaction with the fields to update
       responses:
         '200':
           description: Success - return response of type LinkedTransactions array with updated LinkedTransaction
@@ -10361,6 +10361,7 @@ paths:
       - $ref: '#/components/parameters/idempotencyKey'
       - $ref: '#/components/parameters/ManualJournalID'
       requestBody:
+        description: Manual journal with the fields to update
         content:
           application/json:
             schema:
@@ -10371,7 +10372,6 @@ paths:
                 ManualJournalID: 00000000-0000-0000-0000-000000000000
                 JournalLines: []
         required: true
-        description: Manual journal with the fields to update
       responses:
         '200':
           description: Success - return response of type ManualJournals array with an updated ManualJournal
@@ -12059,6 +12059,7 @@ paths:
       - $ref: '#/components/parameters/idempotencyKey'
       - $ref: '#/components/parameters/PaymentID'
       requestBody:
+        description: Status update that deletes the payment identified in the path
         content:
           application/json:
             schema:
@@ -12067,7 +12068,6 @@ paths:
               Payments:
               - Status: DELETED
         required: true
-        description: Status update that deletes the payment identified in the path
       responses:
         '200':
           description: Success - return response of type Payments array for updated Payment
@@ -13226,6 +13226,7 @@ paths:
       - $ref: '#/components/parameters/summarizeErrors'
       - $ref: '#/components/parameters/idempotencyKey'
       requestBody:
+        description: Purchase orders to create or update
         content:
           application/json:
             schema:
@@ -13241,7 +13242,6 @@ paths:
                   AccountCode: '710'
                 Date: '2019-03-13'
         required: true
-        description: Purchase orders to create or update
       responses:
         '200':
           description: Success - return response of type PurchaseOrder array for specified PurchaseOrder
@@ -13602,6 +13602,7 @@ paths:
       - $ref: '#/components/parameters/idempotencyKey'
       - $ref: '#/components/parameters/PurchaseOrderID'
       requestBody:
+        description: Purchase order with the fields to update
         content:
           application/json:
             schema:
@@ -13612,7 +13613,6 @@ paths:
                 LineItems: []
                 Contact: {}
         required: true
-        description: Purchase order with the fields to update
       responses:
         '200':
           description: Success - return response of type PurchaseOrder array for updated PurchaseOrder
@@ -14452,6 +14452,7 @@ paths:
       - $ref: '#/components/parameters/summarizeErrors'
       - $ref: '#/components/parameters/idempotencyKey'
       requestBody:
+        description: Quotes to create or update
         content:
           application/json:
             schema:
@@ -14467,7 +14468,6 @@ paths:
                   AccountCode: '12775'
                 Date: '2020-02-01'
         required: true
-        description: Quotes to create or update
       responses:
         '200':
           description: Success - return response of type Quotes array with updated or created Quote
@@ -14697,6 +14697,7 @@ paths:
       - $ref: '#/components/parameters/idempotencyKey'
       - $ref: '#/components/parameters/QuoteID'
       requestBody:
+        description: Quote with the fields to update
         content:
           application/json:
             schema:
@@ -14708,7 +14709,6 @@ paths:
                   ContactID: 00000000-0000-0000-0000-000000000000
                 Date: '2020-02-01'
         required: true
-        description: Quote with the fields to update
       responses:
         '200':
           description: Success - return response of type Quotes array with updated Quote
@@ -15515,6 +15515,7 @@ paths:
       - $ref: '#/components/parameters/unitdp'
       - $ref: '#/components/parameters/idempotencyKey'
       requestBody:
+        description: Draft expense claim receipt with the fields to update
         content:
           application/json:
             schema:
@@ -15526,7 +15527,6 @@ paths:
                   UserID: 00000000-0000-0000-0000-000000000000
                 Reference: Foobar
         required: true
-        description: Draft expense claim receipt with the fields to update
       responses:
         '200':
           description: Success - return response of type Receipts array for updated Receipt
@@ -16309,6 +16309,7 @@ paths:
       - $ref: '#/components/parameters/idempotencyKey'
       - $ref: '#/components/parameters/RepeatingInvoiceID'
       requestBody:
+        description: Repeating invoice template with the fields to update, or a DELETED status
         content:
           application/json:
             schema:
@@ -16357,7 +16358,6 @@ paths:
               Total: 5750.0
               CurrencyCode: NZD
         required: true
-        description: Repeating invoice template with the fields to update, or a DELETED status
       responses:
         '200':
           description: Success - return response of type RepeatingInvoices array with deleted Invoice
@@ -19000,6 +19000,7 @@ paths:
       parameters:
       - $ref: '#/components/parameters/idempotencyKey'
       requestBody:
+        description: Tax rates with the fields to update
         content:
           application/json:
             schema:
@@ -19013,7 +19014,6 @@ paths:
                 Status: DELETED
                 ReportTaxType: INPUT
         required: true
-        description: Tax rates with the fields to update
       responses:
         '200':
           description: Success - return response of type TaxRates array updated TaxRate
@@ -19306,6 +19306,7 @@ paths:
       - $ref: '#/components/parameters/idempotencyKey'
       - $ref: '#/components/parameters/TrackingCategoryID'
       requestBody:
+        description: Tracking category with the fields to update
         content:
           application/json:
             schema:
@@ -19313,7 +19314,6 @@ paths:
             example:
               Name: Avengers
         required: true
-        description: Tracking category with the fields to update
       responses:
         '200':
           description: Success - return response of type TrackingCategories array of updated TrackingCategory
@@ -19444,6 +19444,7 @@ paths:
       - $ref: '#/components/parameters/TrackingCategoryID'
       - $ref: '#/components/parameters/TrackingOptionID'
       requestBody:
+        description: Tracking option with the fields to update
         content:
           application/json:
             schema:
@@ -19451,7 +19452,6 @@ paths:
             example:
               name: Vision
         required: true
-        description: Tracking option with the fields to update
       responses:
         '200':
           description: Success - return response of type TrackingOptions array of options for a specified
@@ -19737,10 +19737,10 @@ components:
           example: Food Sales
           x-ballerina-name: name
         CurrencyCode:
+          description: Currency code of the account
           allOf:
           - $ref: '#/components/schemas/CurrencyCode'
           x-ballerina-name: currencyCode
-          description: Currency code of the account
         ReportingCodeName:
           type: string
           description: Shown if set
@@ -19755,10 +19755,10 @@ components:
           description: Boolean – describes whether account can have payments applied to it
           x-ballerina-name: enablePaymentsToAccount
         Type:
+          description: Type of the account (for example BANK, REVENUE or EXPENSE)
           allOf:
           - $ref: '#/components/schemas/AccountType'
           x-ballerina-name: type
-          description: Type of the account (for example BANK, REVENUE or EXPENSE)
         BankAccountType:
           type: string
           description: For bank accounts only. See Bank Account types
@@ -19905,10 +19905,10 @@ components:
           description: URL link to a source document – shown as “Go to [appName]” in the Xero app
           x-ballerina-name: url
         CurrencyCode:
+          description: Currency code of the invoice
           allOf:
           - $ref: '#/components/schemas/CurrencyCode'
           x-ballerina-name: currencyCode
-          description: Currency code of the invoice
         UpdatedDateUTCString:
           type: string
           description: UTC ISO-8601 formatted timestamp of last update to the invoice
@@ -20034,16 +20034,16 @@ components:
           x-is-msdate: true
           x-ballerina-name: date
         Contact:
+          description: Contact associated with the invoice
           allOf:
           - $ref: '#/components/schemas/Contact'
           x-ballerina-name: contact
-          description: Contact associated with the invoice
         LineAmountTypes:
+          description: Whether line amounts of the invoice are tax exclusive, tax inclusive or have no
+            tax
           allOf:
           - $ref: '#/components/schemas/LineAmountTypes'
           x-ballerina-name: lineAmountTypes
-          description: Whether line amounts of the invoice are tax exclusive, tax inclusive or have no
-            tax
         CISDeduction:
           type: number
           description: CIS deduction for UK contractors
@@ -20207,24 +20207,24 @@ components:
       properties:
         RepeatingInvoices:
           type: array
+          description: List of repeating invoices
           items:
             $ref: '#/components/schemas/RepeatingInvoice'
           x-ballerina-name: repeatingInvoices
-          description: List of repeating invoices
       x-objectArrayKey: repeating_invoices
     Payments:
       type: object
       properties:
         pagination:
+          description: Pagination details of the returned page of results
           allOf:
           - $ref: '#/components/schemas/Pagination'
-          description: Pagination details of the returned page of results
         Payments:
           type: array
+          description: List of payments
           items:
             $ref: '#/components/schemas/Payment'
           x-ballerina-name: payments
-          description: List of payments
         Warnings:
           type: array
           description: Displays array of warning messages from the API
@@ -20237,10 +20237,10 @@ components:
       properties:
         Users:
           type: array
+          description: List of users
           items:
             $ref: '#/components/schemas/User'
           x-ballerina-name: users
-          description: List of users
       x-objectArrayKey: users
     ContactPerson:
       type: object
@@ -20304,8 +20304,8 @@ components:
           x-ballerina-name: deleted
         Present:
           type: boolean
-          x-ballerina-name: present
           description: Whether accounts are present in the organisation
+          x-ballerina-name: present
         System:
           type: integer
           description: The number of system accounts
@@ -20660,10 +20660,10 @@ components:
       type: object
       properties:
         SalesDetails:
+          description: Sales details for the item
           allOf:
           - $ref: '#/components/schemas/Purchase'
           x-ballerina-name: salesDetails
-          description: Sales details for the item
         Description:
           maxLength: 4000
           type: string
@@ -20742,10 +20742,10 @@ components:
             values will be nulled
           x-ballerina-name: isSold
         PurchaseDetails:
+          description: Purchase details for the item
           allOf:
           - $ref: '#/components/schemas/Purchase'
           x-ballerina-name: purchaseDetails
-          description: Purchase details for the item
         QuantityOnBackOrder:
           type: number
           description: The quantity of the item on backorder. This will be 0 if `QuantityOnHand` is greater
@@ -20780,10 +20780,10 @@ components:
       properties:
         CISSettings:
           type: array
+          description: CIS settings of the organisation
           items:
             $ref: '#/components/schemas/CISOrgSetting'
           x-ballerina-name: cISSettings
-          description: CIS settings of the organisation
       x-objectArrayKey: cis_settings
     ConversionBalances:
       type: object
@@ -20794,10 +20794,10 @@ components:
           x-ballerina-name: accountCode
         BalanceDetails:
           type: array
+          description: Balance details of the conversion balance entry
           items:
             $ref: '#/components/schemas/BalanceDetails'
           x-ballerina-name: balanceDetails
-          description: Balance details of the conversion balance entry
         Balance:
           type: number
           description: The opening balances of the account. Debits are positive, credits are negative
@@ -20810,10 +20810,10 @@ components:
       properties:
         Organisations:
           type: array
+          description: List of organisations
           items:
             $ref: '#/components/schemas/Organisation'
           x-ballerina-name: organisations
-          description: List of organisations
       x-objectArrayKey: organisations
     RequestEmpty:
       type: object
@@ -20832,10 +20832,10 @@ components:
           description: Name of Currency
           x-ballerina-name: description
         Code:
+          description: ISO 4217 code of the currency
           allOf:
           - $ref: '#/components/schemas/CurrencyCode'
           x-ballerina-name: code
-          description: ISO 4217 code of the currency
       externalDocs:
         url: http://developer.xero.com/documentation/api/currencies/
     TrackingOption:
@@ -20880,54 +20880,54 @@ components:
       properties:
         Budgets:
           type: array
+          description: List of budgets
           items:
             $ref: '#/components/schemas/Budget'
           x-ballerina-name: budgets
-          description: List of budgets
       x-objectArrayKey: budgets
     ContactGroups:
       type: object
       properties:
         ContactGroups:
           type: array
+          description: List of contact groups
           items:
             $ref: '#/components/schemas/ContactGroup'
           x-ballerina-name: contactGroups
-          description: List of contact groups
       x-objectArrayKey: contact_groups
     HistoryRecords:
       type: object
       properties:
         HistoryRecords:
           type: array
+          description: List of history records
           items:
             $ref: '#/components/schemas/HistoryRecord'
           x-ballerina-name: historyRecords
-          description: List of history records
       x-objectArrayKey: history_records
     Actions:
       type: object
       properties:
         Actions:
           type: array
+          description: List of actions the organisation can perform
           items:
             $ref: '#/components/schemas/Action'
           x-ballerina-name: actions
-          description: List of actions the organisation can perform
       x-objectArrayKey: actions
     Prepayments:
       type: object
       properties:
         pagination:
+          description: Pagination details of the returned page of results
           allOf:
           - $ref: '#/components/schemas/Pagination'
-          description: Pagination details of the returned page of results
         Prepayments:
           type: array
+          description: List of prepayments
           items:
             $ref: '#/components/schemas/Prepayment'
           x-ballerina-name: prepayments
-          description: List of prepayments
         Warnings:
           type: array
           description: Displays array of warning messages from the API
@@ -20939,15 +20939,15 @@ components:
       type: object
       properties:
         AccountsPayable:
+          description: Accounts payable (outstanding and overdue) balances of the contact
           allOf:
           - $ref: '#/components/schemas/AccountsPayable'
           x-ballerina-name: accountsPayable
-          description: Accounts payable (outstanding and overdue) balances of the contact
         AccountsReceivable:
+          description: Accounts receivable (outstanding and overdue) balances of the contact
           allOf:
           - $ref: '#/components/schemas/AccountsReceivable'
           x-ballerina-name: accountsReceivable
-          description: Accounts receivable (outstanding and overdue) balances of the contact
       description: The raw AccountsReceivable(sales invoices) and AccountsPayable(bills) outstanding and
         overdue amounts, not converted to base currency (read only)
     ReportWithRows:
@@ -20955,10 +20955,10 @@ components:
       properties:
         Reports:
           type: array
+          description: List of reports
           items:
             $ref: '#/components/schemas/ReportWithRow'
           x-ballerina-name: reports
-          description: List of reports
     TimeZone:
       type: string
       description: Timezone specifications
@@ -21129,9 +21129,9 @@ components:
           description: Date of report
         Rows:
           type: array
+          description: Rows of the report
           items:
             $ref: '#/components/schemas/ReportRows'
-          description: Rows of the report
         UpdatedDateUTC:
           type: string
           description: Updated Date
@@ -21140,9 +21140,9 @@ components:
           x-is-msdate-time: true
         Fields:
           type: array
+          description: Fields of the report
           items:
             $ref: '#/components/schemas/ReportFields'
-          description: Fields of the report
       externalDocs:
         url: http://developer.xero.com/documentation/api/reports/
     CISOrgSetting:
@@ -21166,10 +21166,10 @@ components:
       properties:
         Journals:
           type: array
+          description: List of journals
           items:
             $ref: '#/components/schemas/Journal'
           x-ballerina-name: journals
-          description: List of journals
         Warnings:
           type: array
           description: Displays array of warning messages from the API
@@ -21181,10 +21181,10 @@ components:
       type: object
       properties:
         Type:
+          description: Payment term type that determines how the day value is applied
           allOf:
           - $ref: '#/components/schemas/PaymentTermType'
           x-ballerina-name: type
-          description: Payment term type that determines how the day value is applied
         Day:
           type: integer
           description: Day of Month (0-31)
@@ -21195,15 +21195,15 @@ components:
       type: object
       properties:
         pagination:
+          description: Pagination details of the returned page of results
           allOf:
           - $ref: '#/components/schemas/Pagination'
-          description: Pagination details of the returned page of results
         Overpayments:
           type: array
+          description: List of overpayments
           items:
             $ref: '#/components/schemas/Overpayment'
           x-ballerina-name: overpayments
-          description: List of overpayments
         Warnings:
           type: array
           description: Displays array of warning messages from the API
@@ -21216,14 +21216,14 @@ components:
       properties:
         Value:
           type: string
-          x-ballerina-name: value
           description: Value of the report cell
+          x-ballerina-name: value
         Attributes:
           type: array
+          description: Attributes of the report cell
           items:
             $ref: '#/components/schemas/ReportAttribute'
           x-ballerina-name: attributes
-          description: Attributes of the report cell
     ConversionDate:
       type: object
       properties:
@@ -21265,10 +21265,10 @@ components:
           x-is-money: true
           x-ballerina-name: amountDue
         User:
+          description: User who submitted the expense claim
           allOf:
           - $ref: '#/components/schemas/User'
           x-ballerina-name: user
-          description: User who submitted the expense claim
         ReceiptID:
           type: string
           description: The Xero identifier for the Receipt e.g. e59a2c7f-1306-4078-a0f3-73537afcbba9
@@ -21309,10 +21309,10 @@ components:
           x-ballerina-name: reportingDate
         Receipts:
           type: array
+          description: Receipts included in the expense claim
           items:
             $ref: '#/components/schemas/Receipt'
           x-ballerina-name: receipts
-          description: Receipts included in the expense claim
         PaymentDueDate:
           type: string
           description: The date when the expense claim is due to be paid YYYY-MM-DD
@@ -21326,41 +21326,41 @@ components:
       properties:
         BrandingThemes:
           type: array
+          description: List of branding themes
           items:
             $ref: '#/components/schemas/BrandingTheme'
           x-ballerina-name: brandingThemes
-          description: List of branding themes
       x-objectArrayKey: branding_themes
     ImportSummaryOrganisation:
       type: object
       properties:
         Present:
           type: boolean
-          x-ballerina-name: present
           description: Whether the organisation details are present
+          x-ballerina-name: present
     Quotes:
       type: object
       properties:
         Quotes:
           type: array
+          description: List of quotes
           items:
             $ref: '#/components/schemas/Quote'
           x-ballerina-name: quotes
-          description: List of quotes
       x-objectArrayKey: quotes
     CreditNotes:
       type: object
       properties:
         pagination:
+          description: Pagination details of the returned page of results
           allOf:
           - $ref: '#/components/schemas/Pagination'
-          description: Pagination details of the returned page of results
         CreditNotes:
           type: array
+          description: List of credit notes
           items:
             $ref: '#/components/schemas/CreditNote'
           x-ballerina-name: creditNotes
-          description: List of credit notes
         Warnings:
           type: array
           description: Displays array of warning messages from the API
@@ -21395,10 +21395,10 @@ components:
           x-ballerina-name: accountCode
         BudgetBalances:
           type: array
+          description: Budget balances for each period of the budget line
           items:
             $ref: '#/components/schemas/BudgetBalance'
           x-ballerina-name: budgetBalances
-          description: Budget balances for each period of the budget line
       externalDocs:
         url: http://developer.xero.com/documentation/api/budgets/
     BudgetBalance:
@@ -21431,20 +21431,20 @@ components:
       properties:
         Options:
           type: array
+          description: List of tracking options
           items:
             $ref: '#/components/schemas/TrackingOption'
           x-ballerina-name: options
-          description: List of tracking options
       x-objectArrayKey: options
     BatchPayments:
       type: object
       properties:
         BatchPayments:
           type: array
+          description: List of batch payments
           items:
             $ref: '#/components/schemas/BatchPayment'
           x-ballerina-name: batchPayments
-          description: List of batch payments
       x-objectArrayKey: batch_payments
     Budget:
       type: object
@@ -21463,10 +21463,10 @@ components:
           x-ballerina-name: description
         Tracking:
           type: array
+          description: Tracking categories applied to the budget
           items:
             $ref: '#/components/schemas/TrackingCategory'
           x-ballerina-name: tracking
-          description: Tracking categories applied to the budget
         UpdatedDateUTC:
           type: string
           description: UTC timestamp of last update to budget
@@ -21481,10 +21481,10 @@ components:
           x-ballerina-name: budgetID
         BudgetLines:
           type: array
+          description: Lines of the budget
           items:
             $ref: '#/components/schemas/BudgetLine'
           x-ballerina-name: budgetLines
-          description: Lines of the budget
       externalDocs:
         url: http://developer.xero.com/documentation/api/budgets/
     LineItemTracking:
@@ -21594,16 +21594,16 @@ components:
           x-is-msdate: true
           x-ballerina-name: date
         Contact:
+          description: Contact associated with the overpayment
           allOf:
           - $ref: '#/components/schemas/Contact'
           x-ballerina-name: contact
-          description: Contact associated with the overpayment
         LineAmountTypes:
+          description: Whether line amounts of the overpayment are tax exclusive, tax inclusive or have
+            no tax
           allOf:
           - $ref: '#/components/schemas/LineAmountTypes'
           x-ballerina-name: lineAmountTypes
-          description: Whether line amounts of the overpayment are tax exclusive, tax inclusive or have
-            no tax
         UpdatedDateUTCString:
           type: string
           description: UTC ISO-8601 formatted timestamp of last update to the overpayment
@@ -21611,10 +21611,10 @@ components:
           example: '2019-11-14T18:10:38Z'
           x-ballerina-name: updatedDateUTCString
         CurrencyCode:
+          description: Currency code of the overpayment
           allOf:
           - $ref: '#/components/schemas/CurrencyCode'
           x-ballerina-name: currencyCode
-          description: Currency code of the overpayment
         Type:
           type: string
           description: See Overpayment Types
@@ -21653,20 +21653,20 @@ components:
       properties:
         TaxRates:
           type: array
+          description: List of tax rates
           items:
             $ref: '#/components/schemas/TaxRate'
           x-ballerina-name: taxRates
-          description: List of tax rates
       x-objectArrayKey: tax_rates
     PaymentServices:
       type: object
       properties:
         PaymentServices:
           type: array
+          description: List of payment services
           items:
             $ref: '#/components/schemas/PaymentService'
           x-ballerina-name: paymentServices
-          description: List of payment services
       x-objectArrayKey: payment_services
     BatchPaymentDetails:
       properties:
@@ -21762,11 +21762,11 @@ components:
           description: Url link to a source document – shown as “Go to [appName]” in the Xero app
           x-ballerina-name: url
         LineAmountTypes:
+          description: Whether line amounts of the manual journal are tax exclusive, tax inclusive or
+            have no tax
           allOf:
           - $ref: '#/components/schemas/LineAmountTypes'
           x-ballerina-name: lineAmountTypes
-          description: Whether line amounts of the manual journal are tax exclusive, tax inclusive or
-            have no tax
         ManualJournalID:
           type: string
           description: The Xero identifier for a Manual Journal
@@ -21824,10 +21824,10 @@ components:
       properties:
         Currencies:
           type: array
+          description: List of currencies
           items:
             $ref: '#/components/schemas/Currency'
           x-ballerina-name: currencies
-          description: List of currencies
       x-objectArrayKey: currencies
     LineAmountTypes:
       type: string
@@ -21841,15 +21841,15 @@ components:
       type: object
       properties:
         pagination:
+          description: Pagination details of the returned page of results
           allOf:
           - $ref: '#/components/schemas/Pagination'
-          description: Pagination details of the returned page of results
         Contacts:
           type: array
+          description: List of contacts
           items:
             $ref: '#/components/schemas/Contact'
           x-ballerina-name: contacts
-          description: List of contacts
         Warnings:
           type: array
           description: Displays array of warning messages from the API
@@ -21862,10 +21862,10 @@ components:
       properties:
         ExpenseClaims:
           type: array
+          description: List of expense claims
           items:
             $ref: '#/components/schemas/ExpenseClaim'
           x-ballerina-name: expenseClaims
-          description: List of expense claims
       x-objectArrayKey: expense_claims
     PurchaseOrder:
       type: object
@@ -21926,10 +21926,10 @@ components:
             $ref: '#/components/schemas/Attachment'
           x-ballerina-name: attachments
         CurrencyCode:
+          description: Currency code of the purchase order
           allOf:
           - $ref: '#/components/schemas/CurrencyCode'
           x-ballerina-name: currencyCode
-          description: Currency code of the purchase order
         AttentionTo:
           type: string
           description: The person that the delivery is going to
@@ -21999,16 +21999,16 @@ components:
           x-is-msdate: true
           x-ballerina-name: date
         Contact:
+          description: Contact associated with the purchase order
           allOf:
           - $ref: '#/components/schemas/Contact'
           x-ballerina-name: contact
-          description: Contact associated with the purchase order
         LineAmountTypes:
+          description: Whether line amounts of the purchase order are tax exclusive, tax inclusive or
+            have no tax
           allOf:
           - $ref: '#/components/schemas/LineAmountTypes'
           x-ballerina-name: lineAmountTypes
-          description: Whether line amounts of the purchase order are tax exclusive, tax inclusive or
-            have no tax
         Total:
           type: number
           description: Total of Purchase Order tax inclusive (i.e. SubTotal + TotalTax)
@@ -22116,16 +22116,16 @@ components:
           x-is-msdate: true
           x-ballerina-name: date
         Contact:
+          description: Contact associated with the prepayment
           allOf:
           - $ref: '#/components/schemas/Contact'
           x-ballerina-name: contact
-          description: Contact associated with the prepayment
         LineAmountTypes:
+          description: Whether line amounts of the prepayment are tax exclusive, tax inclusive or have
+            no tax
           allOf:
           - $ref: '#/components/schemas/LineAmountTypes'
           x-ballerina-name: lineAmountTypes
-          description: Whether line amounts of the prepayment are tax exclusive, tax inclusive or have
-            no tax
         UpdatedDateUTCString:
           type: string
           description: UTC ISO-8601 formatted timestamp of last update to the prepayment
@@ -22133,10 +22133,10 @@ components:
           example: '2019-11-14T18:10:38Z'
           x-ballerina-name: updatedDateUTCString
         CurrencyCode:
+          description: Currency code of the prepayment
           allOf:
           - $ref: '#/components/schemas/CurrencyCode'
           x-ballerina-name: currencyCode
-          description: Currency code of the prepayment
         Type:
           type: string
           description: See Prepayment Types
@@ -22181,39 +22181,39 @@ components:
       properties:
         Accounts:
           type: array
+          description: List of accounts
           items:
             $ref: '#/components/schemas/Account'
           x-ballerina-name: accounts
-          description: List of accounts
       x-objectArrayKey: accounts
     LinkedTransactions:
       type: object
       properties:
         LinkedTransactions:
           type: array
+          description: List of linked transactions (billable expenses)
           items:
             $ref: '#/components/schemas/LinkedTransaction'
           x-ballerina-name: linkedTransactions
-          description: List of linked transactions (billable expenses)
       x-objectArrayKey: linked_transactions
     ReportRow:
       type: object
       properties:
         RowType:
+          description: Type of the report row
           allOf:
           - $ref: '#/components/schemas/RowType'
           x-ballerina-name: rowType
-          description: Type of the report row
         Title:
           type: string
-          x-ballerina-name: title
           description: Title of the report row
+          x-ballerina-name: title
         Cells:
           type: array
+          description: Cells of the report row
           items:
             $ref: '#/components/schemas/ReportCell'
           x-ballerina-name: cells
-          description: Cells of the report row
     CreditNote:
       type: object
       properties:
@@ -22267,10 +22267,10 @@ components:
           example: '2019-11-14T18:10:38Z'
           x-ballerina-name: updatedDateUTCString
         CurrencyCode:
+          description: Currency code of the credit note
           allOf:
           - $ref: '#/components/schemas/CurrencyCode'
           x-ballerina-name: currencyCode
-          description: Currency code of the credit note
         InvoiceAddresses:
           type: array
           description: An array of addresses used to auto calculate sales tax
@@ -22361,16 +22361,16 @@ components:
           x-is-msdate: true
           x-ballerina-name: date
         Contact:
+          description: Contact associated with the credit note
           allOf:
           - $ref: '#/components/schemas/Contact'
           x-ballerina-name: contact
-          description: Contact associated with the credit note
         LineAmountTypes:
+          description: Whether line amounts of the credit note are tax exclusive, tax inclusive or have
+            no tax
           allOf:
           - $ref: '#/components/schemas/LineAmountTypes'
           x-ballerina-name: lineAmountTypes
-          description: Whether line amounts of the credit note are tax exclusive, tax inclusive or have
-            no tax
         CISDeduction:
           type: number
           description: CIS deduction for UK contractors
@@ -22546,10 +22546,10 @@ components:
           - DELETED
           x-ballerina-name: status
         Account:
+          description: Bank account the batch payment is made from
           allOf:
           - $ref: '#/components/schemas/Account'
           x-ballerina-name: account
-          description: Bank account the batch payment is made from
         BatchPaymentID:
           type: string
           description: The Xero generated unique identifier for the bank transaction (read-only)
@@ -22693,17 +22693,17 @@ components:
       properties:
         Items:
           type: array
+          description: List of items
           items:
             $ref: '#/components/schemas/Item'
           x-ballerina-name: items
-          description: List of items
       x-objectArrayKey: items
     Setup:
       properties:
         ConversionDate:
+          description: Conversion date from which balances are recorded
           allOf:
           - $ref: '#/components/schemas/ConversionDate'
-          description: Conversion date from which balances are recorded
         ConversionBalances:
           type: array
           description: Balance supplied for each account that has a value as at the conversion date.
@@ -22711,9 +22711,9 @@ components:
             $ref: '#/components/schemas/ConversionBalances'
         Accounts:
           type: array
+          description: Chart of accounts to set up
           items:
             $ref: '#/components/schemas/Account'
-          description: Chart of accounts to set up
       externalDocs:
         url: https://developer.xero.com/documentation/api-guides/conversions
     OnlineInvoices:
@@ -22721,10 +22721,10 @@ components:
       properties:
         OnlineInvoices:
           type: array
+          description: List of online invoices
           items:
             $ref: '#/components/schemas/OnlineInvoice'
           x-ballerina-name: onlineInvoices
-          description: List of online invoices
       x-objectArrayKey: online_invoices
     JournalLine:
       type: object
@@ -22784,10 +22784,10 @@ components:
           example: 090
           x-ballerina-name: accountCode
         AccountType:
+          description: Type of the account the journal line is posted to
           allOf:
           - $ref: '#/components/schemas/AccountType'
           x-ballerina-name: accountType
-          description: Type of the account the journal line is posted to
         GrossAmount:
           type: number
           description: Gross amount of journal line (NetAmount + TaxAmount)
@@ -22806,26 +22806,26 @@ components:
       type: object
       properties:
         RowType:
+          description: Type of the report row
           allOf:
           - $ref: '#/components/schemas/RowType'
           x-ballerina-name: rowType
-          description: Type of the report row
         Title:
           type: string
-          x-ballerina-name: title
           description: Title of the report row
+          x-ballerina-name: title
         Cells:
           type: array
+          description: Cells of the report row
           items:
             $ref: '#/components/schemas/ReportCell'
           x-ballerina-name: cells
-          description: Cells of the report row
         Rows:
           type: array
+          description: Nested rows of the report section
           items:
             $ref: '#/components/schemas/ReportRow'
           x-ballerina-name: rows
-          description: Nested rows of the report section
     Receipt:
       type: object
       properties:
@@ -22841,15 +22841,15 @@ components:
           x-ballerina-name: status
         LineItems:
           type: array
+          description: Line items of the receipt
           items:
             $ref: '#/components/schemas/LineItem'
           x-ballerina-name: lineItems
-          description: Line items of the receipt
         User:
+          description: User who created the receipt
           allOf:
           - $ref: '#/components/schemas/User'
           x-ballerina-name: user
-          description: User who created the receipt
         UpdatedDateUTC:
           type: string
           description: Last modified date UTC format
@@ -22897,16 +22897,16 @@ components:
           readOnly: true
           x-ballerina-name: url
         Contact:
+          description: Contact associated with the receipt
           allOf:
           - $ref: '#/components/schemas/Contact'
           x-ballerina-name: contact
-          description: Contact associated with the receipt
         LineAmountTypes:
+          description: Whether line amounts of the receipt are tax exclusive, tax inclusive or have no
+            tax
           allOf:
           - $ref: '#/components/schemas/LineAmountTypes'
           x-ballerina-name: lineAmountTypes
-          description: Whether line amounts of the receipt are tax exclusive, tax inclusive or have no
-            tax
         ReceiptID:
           type: string
           description: Xero generated unique identifier for receipt
@@ -22941,15 +22941,15 @@ components:
       type: object
       properties:
         pagination:
+          description: Pagination details of the returned page of results
           allOf:
           - $ref: '#/components/schemas/Pagination'
-          description: Pagination details of the returned page of results
         PurchaseOrders:
           type: array
+          description: List of purchase orders
           items:
             $ref: '#/components/schemas/PurchaseOrder'
           x-ballerina-name: purchaseOrders
-          description: List of purchase orders
         Warnings:
           type: array
           description: Displays array of warning messages from the API
@@ -22962,16 +22962,16 @@ components:
       properties:
         Outstanding:
           type: number
+          description: Outstanding accounts payable amount
           format: double
           x-is-money: true
           x-ballerina-name: outstanding
-          description: Outstanding accounts payable amount
         Overdue:
           type: number
+          description: Overdue accounts payable amount
           format: double
           x-is-money: true
           x-ballerina-name: overdue
-          description: Overdue accounts payable amount
     ManualJournalLine:
       type: object
       properties:
@@ -23027,10 +23027,10 @@ components:
       properties:
         CISSettings:
           type: array
+          description: CIS settings of the contact
           items:
             $ref: '#/components/schemas/CISSetting'
           x-ballerina-name: cISSettings
-          description: CIS settings of the contact
       x-objectArrayKey: cis_settings
     PaymentTermType:
       type: string
@@ -23044,8 +23044,8 @@ components:
       properties:
         Description:
           type: string
-          x-ballerina-name: description
           description: Description of the external link
+          x-ballerina-name: description
         LinkType:
           type: string
           description: See External link types
@@ -23066,15 +23066,15 @@ components:
       type: object
       properties:
         Account:
+          description: Account the payment is made from or to
           allOf:
           - $ref: '#/components/schemas/Account'
           x-ballerina-name: account
-          description: Account the payment is made from or to
         Invoice:
+          description: Invoice the payment is applied to
           allOf:
           - $ref: '#/components/schemas/Invoice'
           x-ballerina-name: invoice
-          description: Invoice the payment is applied to
         CurrencyRate:
           type: number
           description: Exchange rate when payment is received. Only used for non base currency invoices
@@ -23102,10 +23102,10 @@ components:
             $ref: '#/components/schemas/ValidationError'
           x-ballerina-name: validationErrors
         CreditNote:
+          description: Credit note the payment is applied to
           allOf:
           - $ref: '#/components/schemas/CreditNote'
           x-ballerina-name: creditNote
-          description: Credit note the payment is applied to
         PaymentID:
           type: string
           description: The Xero identifier for an Payment e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9
@@ -23113,10 +23113,10 @@ components:
           example: 00000000-0000-0000-0000-000000000000
           x-ballerina-name: paymentID
         BatchPayment:
+          description: Batch payment the payment belongs to
           allOf:
           - $ref: '#/components/schemas/BatchPayment'
           x-ballerina-name: batchPayment
-          description: Batch payment the payment belongs to
         UpdatedDateUTCString:
           type: string
           description: UTC ISO-8601 formatted timestamp of last update to the payment
@@ -23152,10 +23152,10 @@ components:
           description: Number of invoice or credit note you are applying payment to e.g.INV-4003
           x-ballerina-name: invoiceNumber
         Overpayment:
+          description: Overpayment the payment is applied to
           allOf:
           - $ref: '#/components/schemas/Overpayment'
           x-ballerina-name: overpayment
-          description: Overpayment the payment is applied to
         Status:
           type: string
           description: The status of the payment
@@ -23209,10 +23209,10 @@ components:
           description: The information to appear on the supplier's bank account
           x-ballerina-name: details
         Prepayment:
+          description: Prepayment the payment is applied to
           allOf:
           - $ref: '#/components/schemas/Prepayment'
           x-ballerina-name: prepayment
-          description: Prepayment the payment is applied to
         HasValidationErrors:
           type: boolean
           description: A boolean to indicate if a contact has an validation errors
@@ -23322,15 +23322,15 @@ components:
           default: false
           x-ballerina-name: fromIsReconciled
         FromBankAccount:
+          description: Bank account the money is transferred from
           allOf:
           - $ref: '#/components/schemas/Account'
           x-ballerina-name: fromBankAccount
-          description: Bank account the money is transferred from
         ToBankAccount:
+          description: Bank account the money is transferred to
           allOf:
           - $ref: '#/components/schemas/Account'
           x-ballerina-name: toBankAccount
-          description: Bank account the money is transferred to
         FromBankTransactionID:
           type: string
           description: The Bank Transaction ID for the source account
@@ -23363,16 +23363,16 @@ components:
       properties:
         Outstanding:
           type: number
+          description: Outstanding accounts receivable amount
           format: double
           x-is-money: true
           x-ballerina-name: outstanding
-          description: Outstanding accounts receivable amount
         Overdue:
           type: number
+          description: Overdue accounts receivable amount
           format: double
           x-is-money: true
           x-ballerina-name: overdue
-          description: Overdue accounts receivable amount
     LinkedTransaction:
       type: object
       properties:
@@ -23515,14 +23515,14 @@ components:
       properties:
         BankTransactions:
           type: array
+          description: List of bank transactions
           items:
             $ref: '#/components/schemas/BankTransaction'
           x-ballerina-name: bankTransactions
-          description: List of bank transactions
         pagination:
+          description: Pagination details of the returned page of results
           allOf:
           - $ref: '#/components/schemas/Pagination'
-          description: Pagination details of the returned page of results
         Warnings:
           type: array
           description: Displays array of warning messages from the API
@@ -23535,10 +23535,10 @@ components:
       properties:
         Allocations:
           type: array
+          description: List of allocations
           items:
             $ref: '#/components/schemas/Allocation'
           x-ballerina-name: allocations
-          description: List of allocations
       x-objectArrayKey: allocations
     Action:
       properties:
@@ -23653,16 +23653,16 @@ components:
             $ref: '#/components/schemas/Attachment'
           x-ballerina-name: attachments
         Contact:
+          description: Contact associated with the repeating invoice template
           allOf:
           - $ref: '#/components/schemas/Contact'
           x-ballerina-name: contact
-          description: Contact associated with the repeating invoice template
         LineAmountTypes:
+          description: Whether line amounts of the repeating invoice template are tax exclusive, tax inclusive
+            or have no tax
           allOf:
           - $ref: '#/components/schemas/LineAmountTypes'
           x-ballerina-name: lineAmountTypes
-          description: Whether line amounts of the repeating invoice template are tax exclusive, tax inclusive
-            or have no tax
         IncludePDF:
           type: boolean
           description: Boolean to indicate whether to include PDF attachment
@@ -23670,10 +23670,10 @@ components:
           default: false
           x-ballerina-name: includePDF
         CurrencyCode:
+          description: Currency code of the repeating invoice template
           allOf:
           - $ref: '#/components/schemas/CurrencyCode'
           x-ballerina-name: currencyCode
-          description: Currency code of the repeating invoice template
         SendCopy:
           type: boolean
           description: Boolean to indicate whether a copy is sent to sender's email
@@ -23694,10 +23694,10 @@ components:
           x-is-money: true
           x-ballerina-name: totalTax
         Schedule:
+          description: Schedule on which the repeating invoice is created
           allOf:
           - $ref: '#/components/schemas/Schedule'
           x-ballerina-name: schedule
-          description: Schedule on which the repeating invoice is created
         Total:
           type: number
           description: Total of Invoice tax inclusive (i.e. SubTotal + TotalTax)
@@ -23726,15 +23726,15 @@ components:
       type: object
       properties:
         Organisation:
+          description: Import summary of the organisation details
           allOf:
           - $ref: '#/components/schemas/ImportSummaryOrganisation'
           x-ballerina-name: organisation
-          description: Import summary of the organisation details
         Accounts:
+          description: Import summary of the accounts
           allOf:
           - $ref: '#/components/schemas/ImportSummaryAccounts'
           x-ballerina-name: accounts
-          description: Import summary of the accounts
       description: A summary of the import from setup endpoint
       externalDocs:
         url: https://developer.xero.com/documentation/api-guides/conversions
@@ -23743,9 +23743,9 @@ components:
       properties:
         CreditNoteID:
           type: string
+          description: Identifier of the credit note the error relates to
           format: uuid
           x-ballerina-name: creditNoteID
-          description: Identifier of the credit note the error relates to
         BatchPaymentID:
           type: string
           description: Unique ID for batch payment object with validation error
@@ -23759,29 +23759,29 @@ components:
           x-ballerina-name: validationErrors
         PurchaseOrderID:
           type: string
+          description: Identifier of the purchase order the error relates to
           format: uuid
           x-ballerina-name: purchaseOrderID
-          description: Identifier of the purchase order the error relates to
         ContactID:
           type: string
+          description: Identifier of the contact the error relates to
           format: uuid
           x-ballerina-name: contactID
-          description: Identifier of the contact the error relates to
         InvoiceID:
           type: string
+          description: Identifier of the invoice the error relates to
           format: uuid
           x-ballerina-name: invoiceID
-          description: Identifier of the invoice the error relates to
         ItemID:
           type: string
+          description: Identifier of the item the error relates to
           format: uuid
           x-ballerina-name: itemID
-          description: Identifier of the item the error relates to
         BankTransactionID:
           type: string
+          description: Identifier of the bank transaction the error relates to
           format: uuid
           x-ballerina-name: bankTransactionID
-          description: Identifier of the bank transaction the error relates to
       externalDocs:
         url: https://developer.xero.com/documentation/api/http-response-codes
     RowType:
@@ -23795,15 +23795,15 @@ components:
       type: object
       properties:
         pagination:
+          description: Pagination details of the returned page of results
           allOf:
           - $ref: '#/components/schemas/Pagination'
-          description: Pagination details of the returned page of results
         Invoices:
           type: array
+          description: List of invoices
           items:
             $ref: '#/components/schemas/Invoice'
           x-ballerina-name: invoices
-          description: List of invoices
         Warnings:
           type: array
           description: Displays array of warning messages from the API
@@ -23840,10 +23840,10 @@ components:
       properties:
         Attachments:
           type: array
+          description: List of attachments
           items:
             $ref: '#/components/schemas/Attachment'
           x-ballerina-name: attachments
-          description: List of attachments
       x-objectArrayKey: attachments
     BankTransaction:
       required:
@@ -23904,10 +23904,10 @@ components:
           default: false
           x-ballerina-name: hasAttachments
         BankAccount:
+          description: Bank account of the transaction
           allOf:
           - $ref: '#/components/schemas/Account'
           x-ballerina-name: bankAccount
-          description: Bank account of the transaction
         IsReconciled:
           type: boolean
           description: Boolean to show if transaction is reconciled
@@ -23928,21 +23928,21 @@ components:
           description: URL link to a source document – shown as “Go to App Name”
           x-ballerina-name: url
         Contact:
+          description: Contact associated with the bank transaction
           allOf:
           - $ref: '#/components/schemas/Contact'
           x-ballerina-name: contact
-          description: Contact associated with the bank transaction
         LineAmountTypes:
+          description: Whether line amounts of the bank transaction are tax exclusive, tax inclusive or
+            have no tax
           allOf:
           - $ref: '#/components/schemas/LineAmountTypes'
           x-ballerina-name: lineAmountTypes
-          description: Whether line amounts of the bank transaction are tax exclusive, tax inclusive or
-            have no tax
         CurrencyCode:
+          description: Currency code of the bank transaction
           allOf:
           - $ref: '#/components/schemas/CurrencyCode'
           x-ballerina-name: currencyCode
-          description: Currency code of the bank transaction
         Type:
           type: string
           description: See Bank Transaction Types
@@ -23997,20 +23997,20 @@ components:
       properties:
         InvoiceReminders:
           type: array
+          description: List of invoice reminder settings
           items:
             $ref: '#/components/schemas/InvoiceReminder'
           x-ballerina-name: invoiceReminders
-          description: List of invoice reminder settings
       x-objectArrayKey: invoice_reminders
     BankTransfers:
       type: object
       properties:
         BankTransfers:
           type: array
+          description: List of bank transfers
           items:
             $ref: '#/components/schemas/BankTransfer'
           x-ballerina-name: bankTransfers
-          description: List of bank transfers
       x-objectArrayKey: bank_transfers
     ReportAttribute:
       properties:
@@ -24081,10 +24081,10 @@ components:
       properties:
         BankTransfers:
           type: array
+          description: List of bank transfers to delete
           items:
             $ref: '#/components/schemas/BankTransferDelete'
           x-ballerina-name: bankTransfers
-          description: List of bank transfers to delete
       x-objectArrayKey: bank_transfers
     Allocation:
       required:
@@ -24099,10 +24099,10 @@ components:
           readOnly: true
           x-ballerina-name: isDeleted
         Invoice:
+          description: Invoice the amount is allocated to
           allOf:
           - $ref: '#/components/schemas/Invoice'
           x-ballerina-name: invoice
-          description: Invoice the amount is allocated to
         StatusAttributeString:
           type: string
           description: A string to indicate if a invoice status
@@ -24119,10 +24119,10 @@ components:
           format: uuid
           x-ballerina-name: allocationID
         CreditNote:
+          description: Credit note the amount is allocated from
           allOf:
           - $ref: '#/components/schemas/CreditNote'
           x-ballerina-name: creditNote
-          description: Credit note the amount is allocated from
         Amount:
           type: number
           description: the amount being applied to the invoice
@@ -24130,15 +24130,15 @@ components:
           x-is-money: true
           x-ballerina-name: amount
         Prepayment:
+          description: Prepayment the amount is allocated from
           allOf:
           - $ref: '#/components/schemas/Prepayment'
           x-ballerina-name: prepayment
-          description: Prepayment the amount is allocated from
         Overpayment:
+          description: Overpayment the amount is allocated from
           allOf:
           - $ref: '#/components/schemas/Overpayment'
           x-ballerina-name: overpayment
-          description: Overpayment the amount is allocated from
         Date:
           type: string
           description: the date the allocation is applied YYYY-MM-DD
@@ -24161,6 +24161,7 @@ components:
           x-ballerina-name: phoneCountryCode
         PhoneType:
           type: string
+          description: Type of the phone number
           enum:
           - DEFAULT
           - DDI
@@ -24168,7 +24169,6 @@ components:
           - FAX
           - OFFICE
           x-ballerina-name: phoneType
-          description: Type of the phone number
         PhoneNumber:
           maxLength: 50
           type: string
@@ -24180,15 +24180,15 @@ components:
       type: object
       properties:
         pagination:
+          description: Pagination details of the returned page of results
           allOf:
           - $ref: '#/components/schemas/Pagination'
-          description: Pagination details of the returned page of results
         ManualJournals:
           type: array
+          description: List of manual journals
           items:
             $ref: '#/components/schemas/ManualJournal'
           x-ballerina-name: manualJournals
-          description: List of manual journals
         Warnings:
           type: array
           description: Displays array of warning messages from the API
@@ -24201,10 +24201,10 @@ components:
       properties:
         TrackingCategories:
           type: array
+          description: List of tracking categories
           items:
             $ref: '#/components/schemas/TrackingCategory'
           x-ballerina-name: trackingCategories
-          description: List of tracking categories
       x-objectArrayKey: tracking_categories
     TaxRate:
       type: object
@@ -24737,16 +24737,16 @@ components:
       properties:
         Description:
           type: string
-          x-ballerina-name: description
           description: Description of the report field
+          x-ballerina-name: description
         FieldID:
           type: string
-          x-ballerina-name: fieldID
           description: Identifier of the report field
+          x-ballerina-name: fieldID
         Value:
           type: string
-          x-ballerina-name: value
           description: Value of the report field
+          x-ballerina-name: value
     Purchase:
       type: object
       properties:
@@ -24777,10 +24777,10 @@ components:
       type: object
       properties:
         Timezone:
+          description: Time zone of the organisation
           allOf:
           - $ref: '#/components/schemas/TimeZone'
           x-ballerina-name: timezone
-          description: Time zone of the organisation
         OrganisationID:
           type: string
           description: Unique Xero identifier
@@ -24788,10 +24788,10 @@ components:
           example: 8be9db36-3598-4755-ba5c-c2dbc8c4a7a2
           x-ballerina-name: organisationID
         PaymentTerms:
+          description: Default payment terms of the organisation
           allOf:
           - $ref: '#/components/schemas/PaymentTerm'
           x-ballerina-name: paymentTerms
-          description: Default payment terms of the organisation
         Name:
           type: string
           description: Display name of organisation shown in Xero
@@ -24855,10 +24855,10 @@ components:
             VAT Number (UK) and Tax ID Number (US & Global)
           x-ballerina-name: taxNumber
         CountryCode:
+          description: Country code of the organisation
           allOf:
           - $ref: '#/components/schemas/CountryCode'
           x-ballerina-name: countryCode
-          description: Country code of the organisation
         ExternalLinks:
           type: array
           description: Organisation profile links for popular services such as Facebook,Twitter, GooglePlus
@@ -25005,10 +25005,10 @@ components:
           description: Description of business type as defined in Organisation settings
           x-ballerina-name: lineOfBusiness
         BaseCurrency:
+          description: Base currency of the organisation
           allOf:
           - $ref: '#/components/schemas/CurrencyCode'
           x-ballerina-name: baseCurrency
-          description: Base currency of the organisation
         Class:
           type: string
           description: Organisation Classes describe which plan the Xero organisation is on (e.g. DEMO,
@@ -25064,9 +25064,9 @@ components:
           x-is-msdate-time: true
         Contacts:
           type: array
+          description: Contacts included in the 1099 report
           items:
             $ref: '#/components/schemas/TenNinetyNineContact'
-          description: Contacts included in the 1099 report
       externalDocs:
         url: http://developer.xero.com/documentation/api/reports/
     LineItemItem:
@@ -25262,10 +25262,10 @@ components:
           description: The tax type from TaxRates
           x-ballerina-name: taxType
         Item:
+          description: Item details of the line item
           allOf:
           - $ref: '#/components/schemas/LineItemItem'
           x-ballerina-name: item
-          description: Item details of the line item
         TaxAmount:
           type: number
           description: The tax amount is auto calculated as a percentage of the line amount (see below)
@@ -25315,10 +25315,10 @@ components:
       properties:
         Reports:
           type: array
+          description: List of reports
           items:
             $ref: '#/components/schemas/Report'
           x-ballerina-name: reports
-          description: List of reports
       x-objectArrayKey: reports
     Error:
       type: object
@@ -25347,15 +25347,15 @@ components:
       type: object
       properties:
         Sales:
+          description: Default payment terms for sales invoices
           allOf:
           - $ref: '#/components/schemas/Bill'
           x-ballerina-name: sales
-          description: Default payment terms for sales invoices
         Bills:
+          description: Default payment terms for bills
           allOf:
           - $ref: '#/components/schemas/Bill'
           x-ballerina-name: bills
-          description: Default payment terms for bills
       externalDocs:
         url: http://developer.xero.com/documentation/api/organisation/
     AccountType:
@@ -25430,10 +25430,10 @@ components:
           readOnly: true
           x-ballerina-name: website
         PaymentTerms:
+          description: Default payment terms of the contact
           allOf:
           - $ref: '#/components/schemas/PaymentTerm'
           x-ballerina-name: paymentTerms
-          description: Default payment terms of the contact
         Attachments:
           type: array
           description: Displays array of attachments from the API
@@ -25504,10 +25504,10 @@ components:
           description: The default purchases account code for contacts
           x-ballerina-name: purchasesDefaultAccountCode
         BatchPayments:
+          description: Batch payment details of the contact
           allOf:
           - $ref: '#/components/schemas/BatchPaymentDetails'
           x-ballerina-name: batchPayments
-          description: Batch payment details of the contact
         ContactNumber:
           maxLength: 50
           type: string
@@ -25523,10 +25523,10 @@ components:
             regionalized version of Xero you are using (max length = 50)
           x-ballerina-name: taxNumber
         BrandingTheme:
+          description: Default branding theme of the contact
           allOf:
           - $ref: '#/components/schemas/BrandingTheme'
           x-ballerina-name: brandingTheme
-          description: Default branding theme of the contact
         ContactGroups:
           type: array
           description: Displays which contact groups a contact is included in
@@ -25544,10 +25544,10 @@ components:
           description: Status of object
           x-ballerina-name: statusAttributeString
         DefaultCurrency:
+          description: Default currency of the contact
           allOf:
           - $ref: '#/components/schemas/CurrencyCode'
           x-ballerina-name: defaultCurrency
-          description: Default currency of the contact
         FirstName:
           maxLength: 255
           type: string
@@ -25560,10 +25560,10 @@ components:
           default: false
           x-ballerina-name: hasAttachments
         Balances:
+          description: Accounts receivable and payable balances of the contact
           allOf:
           - $ref: '#/components/schemas/Balances'
           x-ballerina-name: balances
-          description: Accounts receivable and payable balances of the contact
         ContactID:
           type: string
           description: Xero identifier
@@ -25647,10 +25647,10 @@ components:
       type: object
       properties:
         Status:
+          description: Status of the quote
           allOf:
           - $ref: '#/components/schemas/QuoteStatusCodes'
           x-ballerina-name: status
-          description: Status of the quote
         LineItems:
           type: array
           description: See LineItems
@@ -25723,20 +25723,20 @@ components:
           x-is-msdate: true
           x-ballerina-name: date
         Contact:
+          description: Contact associated with the quote
           allOf:
           - $ref: '#/components/schemas/Contact'
           x-ballerina-name: contact
-          description: Contact associated with the quote
         LineAmountTypes:
+          description: Whether line amounts of the quote are tax exclusive, tax inclusive or have no tax
           allOf:
           - $ref: '#/components/schemas/QuoteLineAmountTypes'
           x-ballerina-name: lineAmountTypes
-          description: Whether line amounts of the quote are tax exclusive, tax inclusive or have no tax
         CurrencyCode:
+          description: Currency code of the quote
           allOf:
           - $ref: '#/components/schemas/CurrencyCode'
           x-ballerina-name: currencyCode
-          description: Currency code of the quote
         QuoteNumber:
           maxLength: 255
           type: string
@@ -25833,9 +25833,9 @@ components:
     ImportSummaryObject:
       properties:
         ImportSummary:
+          description: Summary of the setup import
           allOf:
           - $ref: '#/components/schemas/ImportSummary'
-          description: Summary of the setup import
       externalDocs:
         url: https://developer.xero.com/documentation/api-guides/conversions
     Schedule:
@@ -25920,10 +25920,10 @@ components:
       properties:
         Receipts:
           type: array
+          description: List of receipts
           items:
             $ref: '#/components/schemas/Receipt'
           x-ballerina-name: receipts
-          description: List of receipts
       x-objectArrayKey: receipts
   responses:
     400Error:

@@ -1,6 +1,6 @@
 _Author_: @DimuthuMadushan \
 _Created_: 2026/09/23 \
-_Updated_: 2026/09/23 \
+_Updated_: 2026/10/05 \
 _Edition_: Swan Lake
 
 # Sanitation for OpenAPI specification
@@ -9,7 +9,7 @@ This document records the sanitation done on top of the official OpenAPI specifi
 The OpenAPI specification is obtained from the [Xero Accounting API 19.0.0 specification](https://github.com/wso2/api-specs/blob/main/openapi/xero/accounts/19.0.0/openapi.yaml) (`openapi/xero/accounts/19.0.0/openapi.yaml` in `api-specs`), which is Xero's own `xero_accounting.yaml` from [XeroAPI/Xero-OpenAPI](https://github.com/XeroAPI/Xero-OpenAPI).
 These changes are done in order to improve the overall usability, and as workarounds for some known language limitations.
 
-`docs/spec/openapi.yaml` is the upstream file, unmodified. Every change below is applied to `docs/spec/aligned_ballerina_openapi.json`, after `bal openapi flatten` and `bal openapi align`. `flatten` and `align` themselves made no structural changes to this specification: no server URL, path prefix, format, nullability or type changes.
+Items 2-7 below are applied to `docs/spec/openapi.yaml` itself, so `bal openapi flatten` and `bal openapi align` carry them into `docs/spec/aligned_ballerina_openapi.json`. `flatten` and `align` themselves made no structural changes to this specification: no server URL, path prefix, format, nullability or type changes.
 
 1. **Converted the aligned YAML to JSON without timestamp coercion**
    **Original**: The response examples contain unquoted date-times (for example `UpdatedDateUTC: 2019-02-25T16:12:31`).
@@ -17,8 +17,8 @@ These changes are done in order to improve the overall usability, and as workaro
    **Reason**: PyYAML resolves unquoted date-times to `datetime` objects, which the JSON encoder rejects, so the plugin's YAML-to-JSON conversion fails. Loading without the timestamp resolver keeps the values unchanged.
 
 2. **Removed the unreferenced `Employee` schema**
-   **Original**: `components.schemas.Employee` is defined, but no operation or schema references it.
-   **Updated**: Deleted.
+   **Original**: `components.schemas.Employee` is defined, but no operation references it. Only the equally unreferenced `Employees` list wrapper refers to it.
+   **Updated**: Both `Employee` and `Employees` are deleted.
    **Reason**: The Employees operations are no longer part of the Xero Accounting API specification, so the schema is a dangling type. Removing it keeps the connector's public types in line with its operations.
 
 3. **Added descriptions to 163 undocumented schema properties**
@@ -26,13 +26,13 @@ These changes are done in order to improve the overall usability, and as workaro
    **Updated**: Each property has a description derived from its schema and purpose (for example "Contact associated with the invoice", "List of invoices", "Pagination details of the returned page of results").
    **Reason**: Undocumented properties produce undocumented record fields in the generated `types.bal`.
 
-4. **Wrapped 11 bare `$ref` properties in `allOf`**
-   **Original**: The `pagination` properties (and `Setup.ConversionDate`, `ImportSummaryObject.ImportSummary`) were a bare `$ref`.
-   **Updated**: `allOf: [{$ref: ...}]` with a sibling `description`.
-   **Reason**: OpenAPI 3.0 ignores keys beside a bare `$ref`, so the description added in item 3 would otherwise be dropped from the generated field.
+4. **Wrapped 80 `$ref` properties that gained a description in `allOf`**
+   **Original**: 54 properties were a bare `$ref` (for example the 11 `pagination` properties, `Setup.ConversionDate`, `ImportSummaryObject.ImportSummary`, `Invoice.Contact`), and 26 more were a `$ref` with a sibling `type: string` (for example `Invoice.CurrencyCode`, `Invoice.LineAmountTypes`, `Organisation.Timezone`) that gained a description in item 3.
+   **Updated**: `allOf: [{$ref: ...}]` with a sibling `description`. For the 26, the ignored sibling `type: string` is dropped.
+   **Reason**: OpenAPI 3.0 ignores keys beside a `$ref`, and `bal openapi align` discards a description written beside one, so the description added in item 3 would otherwise be dropped from the generated field.
 
 5. **Filled four empty operation summaries**
-   **Original**: `PUT` and `POST` `/BankTransfers/{bankTransferID}/Attachments/{fileName}` and `/Contacts/{contactID}/Attachments/{fileName}` had an empty summary.
+   **Original**: `PUT` and `POST` `/BankTransfers/{bankTransferID}/Attachments/{fileName}` and `/Contacts/{contactID}/Attachments/{fileName}` had no summary.
    **Updated**: For example, "Uploads an attachment to a specific bank transfer by file name" and "Updates an attachment on a specific contact by file name".
    **Reason**: The summary becomes the remote method's doc comment.
 
@@ -60,4 +60,5 @@ The following command was used to generate the Ballerina client from the OpenAPI
 ```bash
 bal openapi -i docs/spec/aligned_ballerina_openapi.json --mode client --client-methods remote --license docs/license.txt -o ballerina
 ```
+
 Note: The license year is 2026, as set in `docs/license.txt`.

@@ -934,11 +934,13 @@ paths:
     post:
       tags:
       - Accounting
-      summary: Updates a specific batch payment for invoices and credit notes
+      summary: Deletes one or more batch payments by setting their status to DELETED
       operationId: deleteBatchPayment
       parameters:
       - $ref: "#/components/parameters/idempotencyKey"
       requestBody:
+        description: "Batch payments to delete, each identified by ID with status\
+          \ set to DELETED"
         content:
           application/json:
             schema:
@@ -1079,12 +1081,14 @@ paths:
     post:
       tags:
       - Accounting
-      summary: Updates a specific batch payment for invoices and credit notes
+      summary: Deletes a specific batch payment by setting its status to DELETED
       operationId: deleteBatchPaymentByUrlParam
       parameters:
       - $ref: "#/components/parameters/idempotencyKey"
       - $ref: "#/components/parameters/BatchPaymentID"
       requestBody:
+        description: Status update that deletes the batch payment identified in the
+          path
         content:
           application/json:
             schema:
@@ -1640,6 +1644,7 @@ paths:
       - $ref: "#/components/parameters/unitdp"
       - $ref: "#/components/parameters/idempotencyKey"
       requestBody:
+        description: Bank transactions to create or update
         content:
           application/json:
             schema:
@@ -1996,6 +2001,7 @@ paths:
       - $ref: "#/components/parameters/unitdp"
       - $ref: "#/components/parameters/idempotencyKey"
       requestBody:
+        description: Bank transaction with the fields to update
         content:
           application/json:
             schema:
@@ -2941,6 +2947,8 @@ paths:
       - $ref: "#/components/parameters/idempotencyKey"
       - $ref: "#/components/parameters/BankTransferID"
       requestBody:
+        description: Status update that deletes the bank transfer identified in the
+          path
         content:
           application/json:
             schema:
@@ -3079,6 +3087,7 @@ paths:
     put:
       tags:
       - Accounting
+      summary: Uploads an attachment to a specific bank transfer by file name
       operationId: createBankTransferAttachmentByFileName
       parameters:
       - $ref: "#/components/parameters/idempotencyKey"
@@ -3121,6 +3130,7 @@ paths:
     post:
       tags:
       - Accounting
+      summary: Updates an attachment on a specific bank transfer by file name
       operationId: updateBankTransferAttachmentByFileName
       parameters:
       - $ref: "#/components/parameters/idempotencyKey"
@@ -4034,6 +4044,7 @@ paths:
       - $ref: "#/components/parameters/summarizeErrors"
       - $ref: "#/components/parameters/idempotencyKey"
       requestBody:
+        description: Contacts to create or update
         content:
           application/json:
             schema:
@@ -4685,6 +4696,7 @@ paths:
     put:
       tags:
       - Accounting
+      summary: Uploads an attachment to a specific contact by file name
       operationId: createContactAttachmentByFileName
       parameters:
       - $ref: "#/components/parameters/idempotencyKey"
@@ -4727,6 +4739,7 @@ paths:
     post:
       tags:
       - Accounting
+      summary: Updates an attachment on a specific contact by file name
       operationId: updateContactAttachmentByFileName
       parameters:
       - $ref: "#/components/parameters/idempotencyKey"
@@ -6566,7 +6579,7 @@ paths:
     put:
       tags:
       - Accounting
-      summary: Retrieves history records of a specific credit note
+      summary: Creates a history record for a specific credit note
       operationId: createCreditNoteHistory
       parameters:
       - $ref: "#/components/parameters/idempotencyKey"
@@ -7054,6 +7067,7 @@ paths:
       - $ref: "#/components/parameters/idempotencyKey"
       - $ref: "#/components/parameters/ExpenseClaimID"
       requestBody:
+        description: Expense claim with the fields to update
         content:
           application/json:
             schema:
@@ -7904,6 +7918,7 @@ paths:
       - $ref: "#/components/parameters/idempotencyKey"
       - $ref: "#/components/parameters/allowBackorders"
       requestBody:
+        description: Sales invoices or purchase bills to create or update
         content:
           application/json:
             schema:
@@ -8337,6 +8352,7 @@ paths:
       - $ref: "#/components/parameters/idempotencyKey"
       - $ref: "#/components/parameters/allowBackorders"
       requestBody:
+        description: Invoice with the fields to update
         content:
           application/json:
             schema:
@@ -8710,6 +8726,7 @@ paths:
       - $ref: "#/components/parameters/idempotencyKey"
       - $ref: "#/components/parameters/InvoiceID"
       requestBody:
+        description: Empty request body that triggers the invoice email
         content:
           application/json:
             schema:
@@ -9025,6 +9042,7 @@ paths:
       - $ref: "#/components/parameters/unitdp"
       - $ref: "#/components/parameters/idempotencyKey"
       requestBody:
+        description: Items to create or update
         content:
           application/json:
             schema:
@@ -9156,6 +9174,7 @@ paths:
       - $ref: "#/components/parameters/unitdp"
       - $ref: "#/components/parameters/idempotencyKey"
       requestBody:
+        description: Item with the fields to update
         content:
           application/json:
             schema:
@@ -9799,6 +9818,7 @@ paths:
       - $ref: "#/components/parameters/idempotencyKey"
       - $ref: "#/components/parameters/LinkedTransactionID"
       requestBody:
+        description: Linked transaction with the fields to update
         content:
           application/json:
             schema:
@@ -10450,6 +10470,7 @@ paths:
       - $ref: "#/components/parameters/idempotencyKey"
       - $ref: "#/components/parameters/ManualJournalID"
       requestBody:
+        description: Manual journal with the fields to update
         content:
           application/json:
             schema:
@@ -12161,12 +12182,13 @@ paths:
     post:
       tags:
       - Accounting
-      summary: Updates a specific payment for invoices and credit notes
+      summary: Deletes a specific payment by setting its status to DELETED
       operationId: deletePayment
       parameters:
       - $ref: "#/components/parameters/idempotencyKey"
       - $ref: "#/components/parameters/PaymentID"
       requestBody:
+        description: Status update that deletes the payment identified in the path
         content:
           application/json:
             schema:
@@ -13344,6 +13366,7 @@ paths:
       - $ref: "#/components/parameters/summarizeErrors"
       - $ref: "#/components/parameters/idempotencyKey"
       requestBody:
+        description: Purchase orders to create or update
         content:
           application/json:
             schema:
@@ -13721,6 +13744,7 @@ paths:
       - $ref: "#/components/parameters/idempotencyKey"
       - $ref: "#/components/parameters/PurchaseOrderID"
       requestBody:
+        description: Purchase order with the fields to update
         content:
           application/json:
             schema:
@@ -14568,6 +14592,7 @@ paths:
       - $ref: "#/components/parameters/summarizeErrors"
       - $ref: "#/components/parameters/idempotencyKey"
       requestBody:
+        description: Quotes to create or update
         content:
           application/json:
             schema:
@@ -14814,6 +14839,7 @@ paths:
       - $ref: "#/components/parameters/idempotencyKey"
       - $ref: "#/components/parameters/QuoteID"
       requestBody:
+        description: Quote with the fields to update
         content:
           application/json:
             schema:
@@ -15640,6 +15666,7 @@ paths:
       - $ref: "#/components/parameters/unitdp"
       - $ref: "#/components/parameters/idempotencyKey"
       requestBody:
+        description: Draft expense claim receipt with the fields to update
         content:
           application/json:
             schema:
@@ -16441,12 +16468,14 @@ paths:
     post:
       tags:
       - Accounting
-      summary: Deletes a specific repeating invoice template
+      summary: Updates or deletes a specific repeating invoice template
       operationId: updateRepeatingInvoice
       parameters:
       - $ref: "#/components/parameters/idempotencyKey"
       - $ref: "#/components/parameters/RepeatingInvoiceID"
       requestBody:
+        description: "Repeating invoice template with the fields to update, or a DELETED\
+          \ status"
         content:
           application/json:
             schema:
@@ -19144,6 +19173,7 @@ paths:
       parameters:
       - $ref: "#/components/parameters/idempotencyKey"
       requestBody:
+        description: Tax rates with the fields to update
         content:
           application/json:
             schema:
@@ -19454,6 +19484,7 @@ paths:
       - $ref: "#/components/parameters/idempotencyKey"
       - $ref: "#/components/parameters/TrackingCategoryID"
       requestBody:
+        description: Tracking category with the fields to update
         content:
           application/json:
             schema:
@@ -19593,6 +19624,7 @@ paths:
       - $ref: "#/components/parameters/TrackingCategoryID"
       - $ref: "#/components/parameters/TrackingOptionID"
       requestBody:
+        description: Tracking option with the fields to update
         content:
           application/json:
             schema:
@@ -19868,6 +19900,7 @@ components:
       properties:
         PhoneType:
           type: string
+          description: Type of the phone number
           enum:
           - DEFAULT
           - DDI
@@ -19893,6 +19926,7 @@ components:
       properties:
         Accounts:
           type: array
+          description: List of accounts
           items:
             $ref: "#/components/schemas/Account"
       x-objectArrayKey: accounts
@@ -19916,7 +19950,9 @@ components:
           format: uuid
           example: 00000000-0000-0000-0000-000000000000
         Type:
-          $ref: "#/components/schemas/AccountType"
+          description: "Type of the account (for example BANK, REVENUE or EXPENSE)"
+          allOf:
+          - $ref: "#/components/schemas/AccountType"
         BankAccountNumber:
           type: string
           description: For bank accounts only (Account Type BANK)
@@ -19942,7 +19978,9 @@ components:
           - NONE
           - ""
         CurrencyCode:
-          $ref: "#/components/schemas/CurrencyCode"
+          description: Currency code of the account
+          allOf:
+          - $ref: "#/components/schemas/CurrencyCode"
         TaxType:
           type: string
           description: The tax type from taxRates
@@ -20049,6 +20087,7 @@ components:
       properties:
         Attachments:
           type: array
+          description: List of attachments
           items:
             $ref: "#/components/schemas/Attachment"
       x-objectArrayKey: attachments
@@ -20084,7 +20123,9 @@ components:
       type: object
       properties:
         pagination:
-          $ref: "#/components/schemas/Pagination"
+          description: Pagination details of the returned page of results
+          allOf:
+          - $ref: "#/components/schemas/Pagination"
         Warnings:
           type: array
           description: Displays array of warning messages from the API
@@ -20092,6 +20133,7 @@ components:
             $ref: "#/components/schemas/ValidationError"
         BankTransactions:
           type: array
+          description: List of bank transactions
           items:
             $ref: "#/components/schemas/BankTransaction"
       x-objectArrayKey: bank_transactions
@@ -20115,14 +20157,18 @@ components:
           - RECEIVE-TRANSFER
           - SPEND-TRANSFER
         Contact:
-          $ref: "#/components/schemas/Contact"
+          description: Contact associated with the bank transaction
+          allOf:
+          - $ref: "#/components/schemas/Contact"
         LineItems:
           type: array
           description: See LineItems
           items:
             $ref: "#/components/schemas/LineItem"
         BankAccount:
-          $ref: "#/components/schemas/Account"
+          description: Bank account of the transaction
+          allOf:
+          - $ref: "#/components/schemas/Account"
         IsReconciled:
           type: boolean
           description: Boolean to show if transaction is reconciled
@@ -20135,7 +20181,9 @@ components:
           description: Reference for the transaction. Only supported for SPEND and
             RECEIVE transactions.
         CurrencyCode:
-          $ref: "#/components/schemas/CurrencyCode"
+          description: Currency code of the bank transaction
+          allOf:
+          - $ref: "#/components/schemas/CurrencyCode"
         CurrencyRate:
           type: number
           description: Exchange rate to base currency when money is spent or received.
@@ -20156,7 +20204,10 @@ components:
           - DELETED
           - VOIDED
         LineAmountTypes:
-          $ref: "#/components/schemas/LineAmountTypes"
+          description: "Whether line amounts of the bank transaction are tax exclusive,\
+            \ tax inclusive or have no tax"
+          allOf:
+          - $ref: "#/components/schemas/LineAmountTypes"
         SubTotal:
           type: number
           description: Total of bank transaction excluding taxes
@@ -20246,7 +20297,7 @@ components:
           x-is-money: true
         ItemCode:
           type: string
-          description: See Items
+          description: Code of the item used on the line item (see Items)
         AccountCode:
           type: string
           description: See Accounts
@@ -20266,7 +20317,9 @@ components:
           format: double
           x-is-money: true
         Item:
-          $ref: "#/components/schemas/LineItemItem"
+          description: Item details of the line item
+          allOf:
+          - $ref: "#/components/schemas/LineItemItem"
         LineAmount:
           type: number
           description: If you wish to omit either the Quantity or UnitAmount you can
@@ -20364,6 +20417,7 @@ components:
       properties:
         BankTransfers:
           type: array
+          description: List of bank transfers
           items:
             $ref: "#/components/schemas/BankTransfer"
       x-objectArrayKey: bank_transfers
@@ -20375,9 +20429,13 @@ components:
       type: object
       properties:
         FromBankAccount:
-          $ref: "#/components/schemas/Account"
+          description: Bank account the money is transferred from
+          allOf:
+          - $ref: "#/components/schemas/Account"
         ToBankAccount:
-          $ref: "#/components/schemas/Account"
+          description: Bank account the money is transferred to
+          allOf:
+          - $ref: "#/components/schemas/Account"
         Amount:
           type: number
           description: amount of the transaction
@@ -20495,6 +20553,7 @@ components:
       properties:
         BankTransfers:
           type: array
+          description: List of bank transfers to delete
           items:
             $ref: "#/components/schemas/BankTransferDelete"
       x-objectArrayKey: bank_transfers
@@ -20528,6 +20587,7 @@ components:
       properties:
         BatchPayments:
           type: array
+          description: List of batch payments
           items:
             $ref: "#/components/schemas/BatchPayment"
       x-objectArrayKey: batch_payments
@@ -20535,7 +20595,9 @@ components:
       type: object
       properties:
         Account:
-          $ref: "#/components/schemas/Account"
+          description: Bank account the batch payment is made from
+          allOf:
+          - $ref: "#/components/schemas/Account"
         Reference:
           maxLength: 255
           type: string
@@ -20704,6 +20766,7 @@ components:
       properties:
         BrandingThemes:
           type: array
+          description: List of branding themes
           items:
             $ref: "#/components/schemas/BrandingTheme"
       x-objectArrayKey: branding_themes
@@ -20743,6 +20806,7 @@ components:
       properties:
         PaymentServices:
           type: array
+          description: List of payment services
           items:
             $ref: "#/components/schemas/PaymentService"
       x-objectArrayKey: payment_services
@@ -20777,7 +20841,9 @@ components:
       type: object
       properties:
         pagination:
-          $ref: "#/components/schemas/Pagination"
+          description: Pagination details of the returned page of results
+          allOf:
+          - $ref: "#/components/schemas/Pagination"
         Warnings:
           type: array
           description: Displays array of warning messages from the API
@@ -20785,6 +20851,7 @@ components:
             $ref: "#/components/schemas/ValidationError"
         Contacts:
           type: array
+          description: List of contacts
           items:
             $ref: "#/components/schemas/Contact"
       x-objectArrayKey: contacts
@@ -20911,7 +20978,9 @@ components:
           - EXCLUSIVE
           - NONE
         DefaultCurrency:
-          $ref: "#/components/schemas/CurrencyCode"
+          description: Default currency of the contact
+          allOf:
+          - $ref: "#/components/schemas/CurrencyCode"
         XeroNetworkKey:
           type: string
           description: Store XeroNetworkKey for contacts.
@@ -20940,7 +21009,9 @@ components:
           description: The name of the Tracking Option assigned to the contact under
             SalesTrackingCategories and PurchasesTrackingCategories
         PaymentTerms:
-          $ref: "#/components/schemas/PaymentTerm"
+          description: Default payment terms of the contact
+          allOf:
+          - $ref: "#/components/schemas/PaymentTerm"
         UpdatedDateUTC:
           type: string
           description: UTC timestamp of last update to contact
@@ -20957,9 +21028,13 @@ components:
           description: Website address for contact (read only)
           readOnly: true
         BrandingTheme:
-          $ref: "#/components/schemas/BrandingTheme"
+          description: Default branding theme of the contact
+          allOf:
+          - $ref: "#/components/schemas/BrandingTheme"
         BatchPayments:
-          $ref: "#/components/schemas/BatchPaymentDetails"
+          description: Batch payment details of the contact
+          allOf:
+          - $ref: "#/components/schemas/BatchPaymentDetails"
         Discount:
           type: number
           description: The default discount rate for the contact (read only)
@@ -20967,7 +21042,9 @@ components:
           readOnly: true
           x-is-money: true
         Balances:
-          $ref: "#/components/schemas/Balances"
+          description: Accounts receivable and payable balances of the contact
+          allOf:
+          - $ref: "#/components/schemas/Balances"
         Attachments:
           type: array
           description: Displays array of attachments from the API
@@ -20998,6 +21075,7 @@ components:
       properties:
         Budgets:
           type: array
+          description: List of budgets
           items:
             $ref: "#/components/schemas/Budget"
       x-objectArrayKey: budgets
@@ -21026,10 +21104,12 @@ components:
           x-is-msdate-time: true
         BudgetLines:
           type: array
+          description: Lines of the budget
           items:
             $ref: "#/components/schemas/BudgetLine"
         Tracking:
           type: array
+          description: Tracking categories applied to the budget
           items:
             $ref: "#/components/schemas/TrackingCategory"
       externalDocs:
@@ -21047,6 +21127,7 @@ components:
           example: "090"
         BudgetBalances:
           type: array
+          description: Budget balances for each period of the budget line
           items:
             $ref: "#/components/schemas/BudgetBalance"
       externalDocs:
@@ -21076,9 +21157,15 @@ components:
       type: object
       properties:
         AccountsReceivable:
-          $ref: "#/components/schemas/AccountsReceivable"
+          description: Accounts receivable (outstanding and overdue) balances of the
+            contact
+          allOf:
+          - $ref: "#/components/schemas/AccountsReceivable"
         AccountsPayable:
-          $ref: "#/components/schemas/AccountsPayable"
+          description: Accounts payable (outstanding and overdue) balances of the
+            contact
+          allOf:
+          - $ref: "#/components/schemas/AccountsPayable"
       description: "The raw AccountsReceivable(sales invoices) and AccountsPayable(bills)\
         \ outstanding and overdue amounts, not converted to base currency (read only)"
     AccountsReceivable:
@@ -21086,10 +21173,12 @@ components:
       properties:
         Outstanding:
           type: number
+          description: Outstanding accounts receivable amount
           format: double
           x-is-money: true
         Overdue:
           type: number
+          description: Overdue accounts receivable amount
           format: double
           x-is-money: true
     AccountsPayable:
@@ -21097,10 +21186,12 @@ components:
       properties:
         Outstanding:
           type: number
+          description: Outstanding accounts payable amount
           format: double
           x-is-money: true
         Overdue:
           type: number
+          description: Overdue accounts payable amount
           format: double
           x-is-money: true
     CISSettings:
@@ -21108,6 +21199,7 @@ components:
       properties:
         CISSettings:
           type: array
+          description: CIS settings of the contact
           items:
             $ref: "#/components/schemas/CISSetting"
       x-objectArrayKey: cis_settings
@@ -21130,6 +21222,7 @@ components:
       properties:
         CISSettings:
           type: array
+          description: CIS settings of the organisation
           items:
             $ref: "#/components/schemas/CISOrgSetting"
       x-objectArrayKey: cis_settings
@@ -21174,6 +21267,7 @@ components:
       properties:
         ContactGroups:
           type: array
+          description: List of contact groups
           items:
             $ref: "#/components/schemas/ContactGroup"
       x-objectArrayKey: contact_groups
@@ -21217,7 +21311,9 @@ components:
       type: object
       properties:
         pagination:
-          $ref: "#/components/schemas/Pagination"
+          description: Pagination details of the returned page of results
+          allOf:
+          - $ref: "#/components/schemas/Pagination"
         Warnings:
           type: array
           description: Displays array of warning messages from the API
@@ -21225,6 +21321,7 @@ components:
             $ref: "#/components/schemas/ValidationError"
         CreditNotes:
           type: array
+          description: List of credit notes
           items:
             $ref: "#/components/schemas/CreditNote"
       x-objectArrayKey: credit_notes
@@ -21238,7 +21335,9 @@ components:
           - ACCPAYCREDIT
           - ACCRECCREDIT
         Contact:
-          $ref: "#/components/schemas/Contact"
+          description: Contact associated with the credit note
+          allOf:
+          - $ref: "#/components/schemas/Contact"
         Date:
           type: string
           description: The date the credit note is issued YYYY-MM-DD. If the Date
@@ -21260,7 +21359,10 @@ components:
           - PAID
           - VOIDED
         LineAmountTypes:
-          $ref: "#/components/schemas/LineAmountTypes"
+          description: "Whether line amounts of the credit note are tax exclusive,\
+            \ tax inclusive or have no tax"
+          allOf:
+          - $ref: "#/components/schemas/LineAmountTypes"
         LineItems:
           type: array
           description: See Invoice Line Items
@@ -21306,7 +21408,9 @@ components:
           readOnly: true
           example: 2019-11-14T18:10:38Z
         CurrencyCode:
-          $ref: "#/components/schemas/CurrencyCode"
+          description: Currency code of the credit note
+          allOf:
+          - $ref: "#/components/schemas/CurrencyCode"
         FullyPaidOnDate:
           type: string
           description: Date when credit note was fully paid(UTC format)
@@ -21393,6 +21497,7 @@ components:
       properties:
         Allocations:
           type: array
+          description: List of allocations
           items:
             $ref: "#/components/schemas/Allocation"
       x-objectArrayKey: allocations
@@ -21408,13 +21513,21 @@ components:
           description: Xero generated unique identifier
           format: uuid
         Invoice:
-          $ref: "#/components/schemas/Invoice"
+          description: Invoice the amount is allocated to
+          allOf:
+          - $ref: "#/components/schemas/Invoice"
         Overpayment:
-          $ref: "#/components/schemas/Overpayment"
+          description: Overpayment the amount is allocated from
+          allOf:
+          - $ref: "#/components/schemas/Overpayment"
         Prepayment:
-          $ref: "#/components/schemas/Prepayment"
+          description: Prepayment the amount is allocated from
+          allOf:
+          - $ref: "#/components/schemas/Prepayment"
         CreditNote:
-          $ref: "#/components/schemas/CreditNote"
+          description: Credit note the amount is allocated from
+          allOf:
+          - $ref: "#/components/schemas/CreditNote"
         Amount:
           type: number
           description: the amount being applied to the invoice
@@ -21444,6 +21557,7 @@ components:
       properties:
         Currencies:
           type: array
+          description: List of currencies
           items:
             $ref: "#/components/schemas/Currency"
       x-objectArrayKey: currencies
@@ -21451,7 +21565,9 @@ components:
       type: object
       properties:
         Code:
-          $ref: "#/components/schemas/CurrencyCode"
+          description: ISO 4217 code of the currency
+          allOf:
+          - $ref: "#/components/schemas/CurrencyCode"
         Description:
           type: string
           description: Name of Currency
@@ -21799,60 +21915,12 @@ components:
       - ZMK
       - ZWD
       - EMPTY_CURRENCY
-    Employees:
-      type: object
-      properties:
-        Employees:
-          type: array
-          items:
-            $ref: "#/components/schemas/Employee"
-      x-objectArrayKey: employees
-    Employee:
-      type: object
-      properties:
-        EmployeeID:
-          type: string
-          description: The Xero identifier for an employee e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9
-          format: uuid
-        Status:
-          type: string
-          description: Current status of an employee – see contact status types
-          enum:
-          - ACTIVE
-          - ARCHIVED
-          - GDPRREQUEST
-          - DELETED
-        FirstName:
-          maxLength: 255
-          type: string
-          description: First name of an employee (max length = 255)
-        LastName:
-          maxLength: 255
-          type: string
-          description: Last name of an employee (max length = 255)
-        ExternalLink:
-          $ref: "#/components/schemas/ExternalLink"
-        UpdatedDateUTC:
-          type: string
-          readOnly: true
-          example: /Date(1573755038314)/
-          x-is-msdate-time: true
-        StatusAttributeString:
-          type: string
-          description: A string to indicate if a invoice status
-          example: ERROR
-        ValidationErrors:
-          type: array
-          description: Displays array of validation error messages from the API
-          items:
-            $ref: "#/components/schemas/ValidationError"
-      externalDocs:
-        url: http://developer.xero.com/documentation/api/employees/
     ExpenseClaims:
       type: object
       properties:
         ExpenseClaims:
           type: array
+          description: List of expense claims
           items:
             $ref: "#/components/schemas/ExpenseClaim"
       x-objectArrayKey: expense_claims
@@ -21878,9 +21946,12 @@ components:
           items:
             $ref: "#/components/schemas/Payment"
         User:
-          $ref: "#/components/schemas/User"
+          description: User who submitted the expense claim
+          allOf:
+          - $ref: "#/components/schemas/User"
         Receipts:
           type: array
+          description: Receipts included in the expense claim
           items:
             $ref: "#/components/schemas/Receipt"
         UpdatedDateUTC:
@@ -21928,6 +21999,7 @@ components:
       properties:
         HistoryRecords:
           type: array
+          description: List of history records
           items:
             $ref: "#/components/schemas/HistoryRecord"
       x-objectArrayKey: history_records
@@ -21936,7 +22008,7 @@ components:
       properties:
         Details:
           type: string
-          description: details
+          description: Details of the history record or note
         Changes:
           type: string
           description: Name of branding theme
@@ -21955,7 +22027,9 @@ components:
       type: object
       properties:
         pagination:
-          $ref: "#/components/schemas/Pagination"
+          description: Pagination details of the returned page of results
+          allOf:
+          - $ref: "#/components/schemas/Pagination"
         Warnings:
           type: array
           description: Displays array of warning messages from the API
@@ -21963,6 +22037,7 @@ components:
             $ref: "#/components/schemas/ValidationError"
         Invoices:
           type: array
+          description: List of invoices
           items:
             $ref: "#/components/schemas/Invoice"
       x-objectArrayKey: invoices
@@ -21982,7 +22057,9 @@ components:
           - AROVERPAYMENT
           - ARPREPAYMENT
         Contact:
-          $ref: "#/components/schemas/Contact"
+          description: Contact associated with the invoice
+          allOf:
+          - $ref: "#/components/schemas/Contact"
         LineItems:
           type: array
           description: See LineItems
@@ -21999,7 +22076,10 @@ components:
           description: Date invoice is due – YYYY-MM-DD
           x-is-msdate: true
         LineAmountTypes:
-          $ref: "#/components/schemas/LineAmountTypes"
+          description: "Whether line amounts of the invoice are tax exclusive, tax\
+            \ inclusive or have no tax"
+          allOf:
+          - $ref: "#/components/schemas/LineAmountTypes"
         InvoiceNumber:
           maxLength: 255
           type: string
@@ -22018,7 +22098,9 @@ components:
           description: "URL link to a source document – shown as “Go to [appName]”\
             \ in the Xero app"
         CurrencyCode:
-          $ref: "#/components/schemas/CurrencyCode"
+          description: Currency code of the invoice
+          allOf:
+          - $ref: "#/components/schemas/CurrencyCode"
         CurrencyRate:
           type: number
           description: "The currency rate for a multicurrency invoice. If no rate\
@@ -22209,6 +22291,7 @@ components:
       properties:
         OnlineInvoices:
           type: array
+          description: List of online invoices
           items:
             $ref: "#/components/schemas/OnlineInvoice"
       x-objectArrayKey: online_invoices
@@ -22225,6 +22308,7 @@ components:
       properties:
         InvoiceReminders:
           type: array
+          description: List of invoice reminder settings
           items:
             $ref: "#/components/schemas/InvoiceReminder"
       x-objectArrayKey: invoice_reminders
@@ -22241,6 +22325,7 @@ components:
       properties:
         Items:
           type: array
+          description: List of items
           items:
             $ref: "#/components/schemas/Item"
       x-objectArrayKey: items
@@ -22282,9 +22367,13 @@ components:
           type: string
           description: The purchase description of the item (max length = 4000)
         PurchaseDetails:
-          $ref: "#/components/schemas/Purchase"
+          description: Purchase details for the item
+          allOf:
+          - $ref: "#/components/schemas/Purchase"
         SalesDetails:
-          $ref: "#/components/schemas/Purchase"
+          description: Sales details for the item
+          allOf:
+          - $ref: "#/components/schemas/Purchase"
         IsTrackedAsInventory:
           type: boolean
           description: True for items that are tracked as inventory. An item will
@@ -22368,6 +22457,7 @@ components:
             $ref: "#/components/schemas/ValidationError"
         Journals:
           type: array
+          description: List of journals
           items:
             $ref: "#/components/schemas/Journal"
       x-objectArrayKey: journals
@@ -22453,7 +22543,9 @@ components:
           description: See Accounts
           example: "090"
         AccountType:
-          $ref: "#/components/schemas/AccountType"
+          description: Type of the account the journal line is posted to
+          allOf:
+          - $ref: "#/components/schemas/AccountType"
         AccountName:
           type: string
           description: See AccountCodes
@@ -22503,6 +22595,7 @@ components:
       properties:
         LinkedTransactions:
           type: array
+          description: List of linked transactions (billable expenses)
           items:
             $ref: "#/components/schemas/LinkedTransaction"
       x-objectArrayKey: linked_transactions
@@ -22580,7 +22673,9 @@ components:
       type: object
       properties:
         pagination:
-          $ref: "#/components/schemas/Pagination"
+          description: Pagination details of the returned page of results
+          allOf:
+          - $ref: "#/components/schemas/Pagination"
         Warnings:
           type: array
           description: Displays array of warning messages from the API
@@ -22588,6 +22683,7 @@ components:
             $ref: "#/components/schemas/ValidationError"
         ManualJournals:
           type: array
+          description: List of manual journals
           items:
             $ref: "#/components/schemas/ManualJournal"
       x-objectArrayKey: manual_journals
@@ -22609,7 +22705,10 @@ components:
           description: Date journal was posted – YYYY-MM-DD
           x-is-msdate: true
         LineAmountTypes:
-          $ref: "#/components/schemas/LineAmountTypes"
+          description: "Whether line amounts of the manual journal are tax exclusive,\
+            \ tax inclusive or have no tax"
+          allOf:
+          - $ref: "#/components/schemas/LineAmountTypes"
         Status:
           type: string
           description: See Manual Journal Status Codes
@@ -22711,6 +22810,7 @@ components:
       properties:
         Actions:
           type: array
+          description: List of actions the organisation can perform
           items:
             $ref: "#/components/schemas/Action"
       x-objectArrayKey: actions
@@ -22733,6 +22833,7 @@ components:
       properties:
         Organisations:
           type: array
+          description: List of organisations
           items:
             $ref: "#/components/schemas/Organisation"
       x-objectArrayKey: organisations
@@ -22797,9 +22898,13 @@ components:
           - NOTLLC
           - UNSPECIFIED
         BaseCurrency:
-          $ref: "#/components/schemas/CurrencyCode"
+          description: Base currency of the organisation
+          allOf:
+          - $ref: "#/components/schemas/CurrencyCode"
         CountryCode:
-          $ref: "#/components/schemas/CountryCode"
+          description: Country code of the organisation
+          allOf:
+          - $ref: "#/components/schemas/CountryCode"
         IsDemoCompany:
           type: boolean
           description: Boolean to describe if organisation is a demo company.
@@ -22876,7 +22981,9 @@ components:
           example: /Date(1573755038314)/
           x-is-msdate-time: true
         Timezone:
-          $ref: "#/components/schemas/TimeZone"
+          description: Time zone of the organisation
+          allOf:
+          - $ref: "#/components/schemas/TimeZone"
         OrganisationEntityType:
           type: string
           description: Organisation Entity Type
@@ -22963,7 +23070,9 @@ components:
           items:
             $ref: "#/components/schemas/ExternalLink"
         PaymentTerms:
-          $ref: "#/components/schemas/PaymentTerm"
+          description: Default payment terms of the organisation
+          allOf:
+          - $ref: "#/components/schemas/PaymentTerm"
       externalDocs:
         url: http://developer.xero.com/documentation/api/organisation/
     CountryCode:
@@ -23358,9 +23467,13 @@ components:
       type: object
       properties:
         Bills:
-          $ref: "#/components/schemas/Bill"
+          description: Default payment terms for bills
+          allOf:
+          - $ref: "#/components/schemas/Bill"
         Sales:
-          $ref: "#/components/schemas/Bill"
+          description: Default payment terms for sales invoices
+          allOf:
+          - $ref: "#/components/schemas/Bill"
       externalDocs:
         url: http://developer.xero.com/documentation/api/organisation/
     PaymentTermType:
@@ -23387,6 +23500,7 @@ components:
           description: URL for service e.g. http://twitter.com/xeroapi
         Description:
           type: string
+          description: Description of the external link
       externalDocs:
         url: http://developer.xero.com/documentation/api/organisation/
     Bill:
@@ -23396,14 +23510,18 @@ components:
           type: integer
           description: Day of Month (0-31)
         Type:
-          $ref: "#/components/schemas/PaymentTermType"
+          description: Payment term type that determines how the day value is applied
+          allOf:
+          - $ref: "#/components/schemas/PaymentTermType"
       externalDocs:
         url: http://developer.xero.com/documentation/api/organisation/
     Overpayments:
       type: object
       properties:
         pagination:
-          $ref: "#/components/schemas/Pagination"
+          description: Pagination details of the returned page of results
+          allOf:
+          - $ref: "#/components/schemas/Pagination"
         Warnings:
           type: array
           description: Displays array of warning messages from the API
@@ -23411,6 +23529,7 @@ components:
             $ref: "#/components/schemas/ValidationError"
         Overpayments:
           type: array
+          description: List of overpayments
           items:
             $ref: "#/components/schemas/Overpayment"
       x-objectArrayKey: overpayments
@@ -23425,7 +23544,9 @@ components:
           - SPEND-OVERPAYMENT
           - AROVERPAYMENT
         Contact:
-          $ref: "#/components/schemas/Contact"
+          description: Contact associated with the overpayment
+          allOf:
+          - $ref: "#/components/schemas/Contact"
         Date:
           type: string
           description: The date the overpayment is created YYYY-MM-DD
@@ -23438,7 +23559,10 @@ components:
           - PAID
           - VOIDED
         LineAmountTypes:
-          $ref: "#/components/schemas/LineAmountTypes"
+          description: "Whether line amounts of the overpayment are tax exclusive,\
+            \ tax inclusive or have no tax"
+          allOf:
+          - $ref: "#/components/schemas/LineAmountTypes"
         LineItems:
           type: array
           description: See Overpayment Line Items
@@ -23471,7 +23595,9 @@ components:
           readOnly: true
           example: 2019-11-14T18:10:38Z
         CurrencyCode:
-          $ref: "#/components/schemas/CurrencyCode"
+          description: Currency code of the overpayment
+          allOf:
+          - $ref: "#/components/schemas/CurrencyCode"
         OverpaymentID:
           type: string
           description: Xero generated unique identifier
@@ -23523,7 +23649,9 @@ components:
       type: object
       properties:
         pagination:
-          $ref: "#/components/schemas/Pagination"
+          description: Pagination details of the returned page of results
+          allOf:
+          - $ref: "#/components/schemas/Pagination"
         Warnings:
           type: array
           description: Displays array of warning messages from the API
@@ -23531,6 +23659,7 @@ components:
             $ref: "#/components/schemas/ValidationError"
         Payments:
           type: array
+          description: List of payments
           items:
             $ref: "#/components/schemas/Payment"
       x-objectArrayKey: payments
@@ -23549,13 +23678,21 @@ components:
       type: object
       properties:
         Invoice:
-          $ref: "#/components/schemas/Invoice"
+          description: Invoice the payment is applied to
+          allOf:
+          - $ref: "#/components/schemas/Invoice"
         CreditNote:
-          $ref: "#/components/schemas/CreditNote"
+          description: Credit note the payment is applied to
+          allOf:
+          - $ref: "#/components/schemas/CreditNote"
         Prepayment:
-          $ref: "#/components/schemas/Prepayment"
+          description: Prepayment the payment is applied to
+          allOf:
+          - $ref: "#/components/schemas/Prepayment"
         Overpayment:
-          $ref: "#/components/schemas/Overpayment"
+          description: Overpayment the payment is applied to
+          allOf:
+          - $ref: "#/components/schemas/Overpayment"
         InvoiceNumber:
           type: string
           description: Number of invoice or credit note you are applying payment to
@@ -23565,9 +23702,13 @@ components:
           description: Number of invoice or credit note you are applying payment to
             e.g. INV-4003
         BatchPayment:
-          $ref: "#/components/schemas/BatchPayment"
+          description: Batch payment the payment belongs to
+          allOf:
+          - $ref: "#/components/schemas/BatchPayment"
         Account:
-          $ref: "#/components/schemas/Account"
+          description: Account the payment is made from or to
+          allOf:
+          - $ref: "#/components/schemas/Account"
         Code:
           type: string
           description: Code of account you are using to make the payment e.g. 001
@@ -23681,7 +23822,9 @@ components:
       type: object
       properties:
         pagination:
-          $ref: "#/components/schemas/Pagination"
+          description: Pagination details of the returned page of results
+          allOf:
+          - $ref: "#/components/schemas/Pagination"
         Warnings:
           type: array
           description: Displays array of warning messages from the API
@@ -23689,6 +23832,7 @@ components:
             $ref: "#/components/schemas/ValidationError"
         Prepayments:
           type: array
+          description: List of prepayments
           items:
             $ref: "#/components/schemas/Prepayment"
       x-objectArrayKey: prepayments
@@ -23704,7 +23848,9 @@ components:
           - ARPREPAYMENT
           - APPREPAYMENT
         Contact:
-          $ref: "#/components/schemas/Contact"
+          description: Contact associated with the prepayment
+          allOf:
+          - $ref: "#/components/schemas/Contact"
         Date:
           type: string
           description: The date the prepayment is created YYYY-MM-DD
@@ -23717,7 +23863,10 @@ components:
           - PAID
           - VOIDED
         LineAmountTypes:
-          $ref: "#/components/schemas/LineAmountTypes"
+          description: "Whether line amounts of the prepayment are tax exclusive,\
+            \ tax inclusive or have no tax"
+          allOf:
+          - $ref: "#/components/schemas/LineAmountTypes"
         LineItems:
           type: array
           description: See Prepayment Line Items
@@ -23758,7 +23907,9 @@ components:
           readOnly: true
           example: 2019-11-14T18:10:38Z
         CurrencyCode:
-          $ref: "#/components/schemas/CurrencyCode"
+          description: Currency code of the prepayment
+          allOf:
+          - $ref: "#/components/schemas/CurrencyCode"
         PrepaymentID:
           type: string
           description: Xero generated unique identifier
@@ -23812,7 +23963,9 @@ components:
       type: object
       properties:
         pagination:
-          $ref: "#/components/schemas/Pagination"
+          description: Pagination details of the returned page of results
+          allOf:
+          - $ref: "#/components/schemas/Pagination"
         Warnings:
           type: array
           description: Displays array of warning messages from the API
@@ -23820,6 +23973,7 @@ components:
             $ref: "#/components/schemas/ValidationError"
         PurchaseOrders:
           type: array
+          description: List of purchase orders
           items:
             $ref: "#/components/schemas/PurchaseOrder"
       x-objectArrayKey: purchase_orders
@@ -23827,7 +23981,9 @@ components:
       type: object
       properties:
         Contact:
-          $ref: "#/components/schemas/Contact"
+          description: Contact associated with the purchase order
+          allOf:
+          - $ref: "#/components/schemas/Contact"
         LineItems:
           type: array
           description: See LineItems
@@ -23844,7 +24000,10 @@ components:
           description: Date the goods are to be delivered – YYYY-MM-DD
           x-is-msdate: true
         LineAmountTypes:
-          $ref: "#/components/schemas/LineAmountTypes"
+          description: "Whether line amounts of the purchase order are tax exclusive,\
+            \ tax inclusive or have no tax"
+          allOf:
+          - $ref: "#/components/schemas/LineAmountTypes"
         PurchaseOrderNumber:
           type: string
           description: Unique alpha numeric code identifying purchase order (when
@@ -23857,7 +24016,9 @@ components:
           description: See BrandingThemes
           format: uuid
         CurrencyCode:
-          $ref: "#/components/schemas/CurrencyCode"
+          description: Currency code of the purchase order
+          allOf:
+          - $ref: "#/components/schemas/CurrencyCode"
         Status:
           type: string
           description: See Purchase Order Status Codes
@@ -23959,17 +24120,22 @@ components:
       properties:
         page:
           type: integer
+          description: Current page number
         pageSize:
           type: integer
+          description: Number of items returned per page
         pageCount:
           type: integer
+          description: Total number of pages available
         itemCount:
           type: integer
+          description: Total number of items available
     Quotes:
       type: object
       properties:
         Quotes:
           type: array
+          description: List of quotes
           items:
             $ref: "#/components/schemas/Quote"
       x-objectArrayKey: quotes
@@ -23995,7 +24161,9 @@ components:
           type: string
           description: Terms of the quote
         Contact:
-          $ref: "#/components/schemas/Contact"
+          description: Contact associated with the quote
+          allOf:
+          - $ref: "#/components/schemas/Contact"
         LineItems:
           type: array
           description: See LineItems
@@ -24018,9 +24186,13 @@ components:
           type: string
           description: Date the quote expires – YYYY-MM-DD.
         Status:
-          $ref: "#/components/schemas/QuoteStatusCodes"
+          description: Status of the quote
+          allOf:
+          - $ref: "#/components/schemas/QuoteStatusCodes"
         CurrencyCode:
-          $ref: "#/components/schemas/CurrencyCode"
+          description: Currency code of the quote
+          allOf:
+          - $ref: "#/components/schemas/CurrencyCode"
         CurrencyRate:
           type: number
           description: The currency rate for a multicurrency quote
@@ -24069,7 +24241,10 @@ components:
           example: /Date(1573755038314)/
           x-is-msdate-time: true
         LineAmountTypes:
-          $ref: "#/components/schemas/QuoteLineAmountTypes"
+          description: "Whether line amounts of the quote are tax exclusive, tax inclusive\
+            \ or have no tax"
+          allOf:
+          - $ref: "#/components/schemas/QuoteLineAmountTypes"
         StatusAttributeString:
           type: string
           description: A string to indicate if a invoice status
@@ -24103,6 +24278,7 @@ components:
       properties:
         Receipts:
           type: array
+          description: List of receipts
           items:
             $ref: "#/components/schemas/Receipt"
       x-objectArrayKey: receipts
@@ -24114,18 +24290,26 @@ components:
           description: Date of receipt – YYYY-MM-DD
           x-is-msdate: true
         Contact:
-          $ref: "#/components/schemas/Contact"
+          description: Contact associated with the receipt
+          allOf:
+          - $ref: "#/components/schemas/Contact"
         LineItems:
           type: array
+          description: Line items of the receipt
           items:
             $ref: "#/components/schemas/LineItem"
         User:
-          $ref: "#/components/schemas/User"
+          description: User who created the receipt
+          allOf:
+          - $ref: "#/components/schemas/User"
         Reference:
           type: string
           description: Additional reference number
         LineAmountTypes:
-          $ref: "#/components/schemas/LineAmountTypes"
+          description: "Whether line amounts of the receipt are tax exclusive, tax\
+            \ inclusive or have no tax"
+          allOf:
+          - $ref: "#/components/schemas/LineAmountTypes"
         SubTotal:
           type: number
           description: Total of receipt excluding taxes
@@ -24198,6 +24382,7 @@ components:
       properties:
         RepeatingInvoices:
           type: array
+          description: List of repeating invoices
           items:
             $ref: "#/components/schemas/RepeatingInvoice"
       x-objectArrayKey: repeating_invoices
@@ -24211,16 +24396,23 @@ components:
           - ACCPAY
           - ACCREC
         Contact:
-          $ref: "#/components/schemas/Contact"
+          description: Contact associated with the repeating invoice template
+          allOf:
+          - $ref: "#/components/schemas/Contact"
         Schedule:
-          $ref: "#/components/schemas/Schedule"
+          description: Schedule on which the repeating invoice is created
+          allOf:
+          - $ref: "#/components/schemas/Schedule"
         LineItems:
           type: array
           description: See LineItems
           items:
             $ref: "#/components/schemas/LineItem"
         LineAmountTypes:
-          $ref: "#/components/schemas/LineAmountTypes"
+          description: "Whether line amounts of the repeating invoice template are\
+            \ tax exclusive, tax inclusive or have no tax"
+          allOf:
+          - $ref: "#/components/schemas/LineAmountTypes"
         Reference:
           type: string
           description: ACCREC only – additional reference number
@@ -24229,7 +24421,9 @@ components:
           description: See BrandingThemes
           format: uuid
         CurrencyCode:
-          $ref: "#/components/schemas/CurrencyCode"
+          description: Currency code of the repeating invoice template
+          allOf:
+          - $ref: "#/components/schemas/CurrencyCode"
         Status:
           type: string
           description: One of the following - DRAFT or AUTHORISED – See Invoice Status
@@ -24301,6 +24495,7 @@ components:
       properties:
         Reports:
           type: array
+          description: List of reports
           items:
             $ref: "#/components/schemas/ReportWithRow"
     ReportWithRow:
@@ -24328,6 +24523,7 @@ components:
           description: Date of report
         Rows:
           type: array
+          description: Rows of the report
           items:
             $ref: "#/components/schemas/ReportRows"
         UpdatedDateUTC:
@@ -24338,6 +24534,7 @@ components:
           x-is-msdate-time: true
         Fields:
           type: array
+          description: Fields of the report
           items:
             $ref: "#/components/schemas/ReportFields"
       externalDocs:
@@ -24346,15 +24543,20 @@ components:
       type: object
       properties:
         RowType:
-          $ref: "#/components/schemas/RowType"
+          description: Type of the report row
+          allOf:
+          - $ref: "#/components/schemas/RowType"
         Title:
           type: string
+          description: Title of the report row
         Cells:
           type: array
+          description: Cells of the report row
           items:
             $ref: "#/components/schemas/ReportCell"
         Rows:
           type: array
+          description: Nested rows of the report section
           items:
             $ref: "#/components/schemas/ReportRow"
     RowType:
@@ -24368,11 +24570,15 @@ components:
       type: object
       properties:
         RowType:
-          $ref: "#/components/schemas/RowType"
+          description: Type of the report row
+          allOf:
+          - $ref: "#/components/schemas/RowType"
         Title:
           type: string
+          description: Title of the report row
         Cells:
           type: array
+          description: Cells of the report row
           items:
             $ref: "#/components/schemas/ReportCell"
     ReportCell:
@@ -24380,16 +24586,20 @@ components:
       properties:
         Value:
           type: string
+          description: Value of the report cell
         Attributes:
           type: array
+          description: Attributes of the report cell
           items:
             $ref: "#/components/schemas/ReportAttribute"
     ReportAttribute:
       properties:
         Id:
           type: string
+          description: Identifier of the report attribute
         Value:
           type: string
+          description: Value of the report attribute
       externalDocs:
         url: http://developer.xero.com/documentation/api/reports/
     ReportFields:
@@ -24397,15 +24607,19 @@ components:
       properties:
         FieldID:
           type: string
+          description: Identifier of the report field
         Description:
           type: string
+          description: Description of the report field
         Value:
           type: string
+          description: Value of the report field
     Reports:
       type: object
       properties:
         Reports:
           type: array
+          description: List of reports
           items:
             $ref: "#/components/schemas/Report"
       x-objectArrayKey: reports
@@ -24433,6 +24647,7 @@ components:
           x-is-msdate-time: true
         Contacts:
           type: array
+          description: Contacts included in the 1099 report
           items:
             $ref: "#/components/schemas/TenNinetyNineContact"
       externalDocs:
@@ -24598,6 +24813,7 @@ components:
       properties:
         TaxRates:
           type: array
+          description: List of tax rates
           items:
             $ref: "#/components/schemas/TaxRate"
       x-objectArrayKey: tax_rates
@@ -24731,7 +24947,9 @@ components:
     Setup:
       properties:
         ConversionDate:
-          $ref: "#/components/schemas/ConversionDate"
+          description: Conversion date from which balances are recorded
+          allOf:
+          - $ref: "#/components/schemas/ConversionDate"
         ConversionBalances:
           type: array
           description: Balance supplied for each account that has a value as at the
@@ -24740,6 +24958,7 @@ components:
             $ref: "#/components/schemas/ConversionBalances"
         Accounts:
           type: array
+          description: Chart of accounts to set up
           items:
             $ref: "#/components/schemas/Account"
       externalDocs:
@@ -24771,6 +24990,7 @@ components:
           format: double
         BalanceDetails:
           type: array
+          description: Balance details of the conversion balance entry
           items:
             $ref: "#/components/schemas/BalanceDetails"
       description: Balance supplied for each account that has a value as at the conversion
@@ -24796,16 +25016,22 @@ components:
     ImportSummaryObject:
       properties:
         ImportSummary:
-          $ref: "#/components/schemas/ImportSummary"
+          description: Summary of the setup import
+          allOf:
+          - $ref: "#/components/schemas/ImportSummary"
       externalDocs:
         url: https://developer.xero.com/documentation/api-guides/conversions
     ImportSummary:
       type: object
       properties:
         Accounts:
-          $ref: "#/components/schemas/ImportSummaryAccounts"
+          description: Import summary of the accounts
+          allOf:
+          - $ref: "#/components/schemas/ImportSummaryAccounts"
         Organisation:
-          $ref: "#/components/schemas/ImportSummaryOrganisation"
+          description: Import summary of the organisation details
+          allOf:
+          - $ref: "#/components/schemas/ImportSummaryOrganisation"
       description: A summary of the import from setup endpoint
       externalDocs:
         url: https://developer.xero.com/documentation/api-guides/conversions
@@ -24842,6 +25068,7 @@ components:
           format: int32
         Present:
           type: boolean
+          description: Whether accounts are present in the organisation
         NewOrUpdated:
           type: integer
           description: The number of new or updated accounts
@@ -24852,6 +25079,7 @@ components:
       properties:
         Present:
           type: boolean
+          description: Whether the organisation details are present
     TaxRate:
       type: object
       properties:
@@ -25041,6 +25269,7 @@ components:
       properties:
         TrackingCategories:
           type: array
+          description: List of tracking categories
           items:
             $ref: "#/components/schemas/TrackingCategory"
       x-objectArrayKey: tracking_categories
@@ -25084,6 +25313,7 @@ components:
       properties:
         Options:
           type: array
+          description: List of tracking options
           items:
             $ref: "#/components/schemas/TrackingOption"
       x-objectArrayKey: options
@@ -25128,6 +25358,7 @@ components:
       properties:
         Users:
           type: array
+          description: List of users
           items:
             $ref: "#/components/schemas/User"
       x-objectArrayKey: users
@@ -25204,21 +25435,27 @@ components:
           format: uuid
         BankTransactionID:
           type: string
+          description: Identifier of the bank transaction the error relates to
           format: uuid
         CreditNoteID:
           type: string
+          description: Identifier of the credit note the error relates to
           format: uuid
         ContactID:
           type: string
+          description: Identifier of the contact the error relates to
           format: uuid
         InvoiceID:
           type: string
+          description: Identifier of the invoice the error relates to
           format: uuid
         ItemID:
           type: string
+          description: Identifier of the item the error relates to
           format: uuid
         PurchaseOrderID:
           type: string
+          description: Identifier of the purchase order the error relates to
           format: uuid
       externalDocs:
         url: https://developer.xero.com/documentation/api/http-response-codes
